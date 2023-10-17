@@ -23,7 +23,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
     }
     
-    //is device is on, scan for peripherals.
+    //is device is on? scan for peripherals.
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .poweredOff:
@@ -47,13 +47,15 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     //scan for peripherals
     func connectToSensor(){
         centralManager.scanForPeripherals(withServices: [CBUUIDs.BLEService_UUID], options: nil)
+        print("Connected")
     }
     
     //disconnect or cancel an active or pending local connection
-    func disconnectFromDevice(){
+    func disconnectFromSensor(){
         if cuffPeripheral != nil {
             centralManager.cancelPeripheralConnection(cuffPeripheral!)
         }
+        print("Disconnected")
     }
         
     //assign a local peripheral
@@ -141,39 +143,36 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     //read characteristic
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?){
-        var characteristicASCIIValue = NSString()
-        guard characteristic == rxCharacteristic,
-              let characteristicValue = characteristic.value,
-              let ASCIIstring = NSString(data: characteristicValue, encoding: String.Encoding.utf8.rawValue) else { return }
-        characteristicASCIIValue = ASCIIstring
-        print("Value Recieved: \(characteristicASCIIValue as String)")
-    }
+        if let floatValue = characteristic.value?.withUnsafeBytes{ $0.load(as: Float.self) }{
+            print(floatValue)
+        }
+        else {
+            print("Data is not suitable for conversion to a float.")
+        }
+     }
     
     //write characteristic
-    func writeOutgoingValue(value: Float){
-        print(value)
-        //convert float value to an IEEE standard 32 bit array
-        var valueBytes = convertToUInt32Array(value)
-        //Data is a byte buffer in memory
-        let valuePtr = Data(buffer: UnsafeBufferPointer(start: &valueBytes, count: 1))
+    func writeOutgoingValue(value: Float) {
+        //create mutable version of value
+        var floatValue = value
+        
+        //a float is 32 bits, so create a pointer to the value byte array with UnsafeBufferPointer and place it in the Data object
+        //this line generates a warning about dangling buffer pointers. as long as the pointer is not access elsewhere,
+        //safety is maintained
+        let floatBytes = Data(buffer: UnsafeBufferPointer(start: &floatValue, count:1))
+        
+        print(floatBytes as NSData)
+        
         if let cuffPeripheral = cuffPeripheral{
+        //enter block if cuffPeripheral exists i.e. is not nil
             if let txCharacteristic = txCharacteristic {
-                cuffPeripheral.writeValue(valuePtr, for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
+            //enter block if txCharacteristic is not nil
+                cuffPeripheral.writeValue(((floatBytes as NSData) as Data), for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
+                
             }
         }
     }
-    
-    private func convertToUInt32Array(_ value: Float)->[UInt32]{
-        var floatValue = value; //make a mutable copy
-        return withUnsafeBytes(of: &floatValue){(ptr: UnsafeRawBufferPointer)->[UInt32] in
-            let uint32Ptr = ptr.bindMemory(to: UInt32.self)
-            return Array(uint32Ptr)
-        }
-    }
 }
-
-
-
 
 /*Notes
  *Core Bluetooth framework - provides classes to communicate with BLEs
@@ -186,7 +185,9 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
  *
  */
 
+
 /*Sources
  learn.adafruit.com/build-a-bluetooth-app-using-swift-5?view=all
  novelbits.io/manage-multiple-ble-peripherals-in-ios-swiftui/
+ for getting a pointer to buffer: stackoverflow.com/questions/36812583/how-to-convert-a-float-value-to-byte-array-in-swift
  */

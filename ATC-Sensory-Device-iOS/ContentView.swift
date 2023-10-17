@@ -28,17 +28,27 @@ struct ContentView: View {
                             .foregroundColor(.accentColor)
                             .background(RoundedRectangle(cornerRadius: 25)
                                 .stroke(Color.white, lineWidth: 2)
-                                .background(Color.white.cornerRadius(25)))
+                                .background(Color.blue.cornerRadius(25)))
                     }
-                    Button(action: {bleController.connectToSensor()}){
+                    Button(action: {bleController.disconnectFromSensor()}){
                         Text("Disconnect")
                             .font(.title2)
                             .padding()
                             .foregroundColor(.accentColor)
                             .background(RoundedRectangle(cornerRadius: 25)
                                 .stroke(Color.white, lineWidth: 2)
-                                .background(Color.white.cornerRadius(25)))
+                                .background(Color.blue.cornerRadius(25)))
                     }
+                    Button(action: {bleController.writeOutgoingValue(value: 14.7)}){
+                        Text("Write Value")
+                            .font(.title2)
+                            .padding()
+                            .foregroundColor(.accentColor)
+                            .background(RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color.white, lineWidth: 2)
+                                .background(Color.red.cornerRadius(25)))
+                    }
+                    
                 }.padding()
             }
     }
