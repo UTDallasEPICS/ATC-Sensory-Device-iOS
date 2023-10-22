@@ -1,6 +1,6 @@
 //
 //  BLEController.swift
-//  ATC Sensory Cuff
+//  ATC-Sensory-Device-iOS
 //
 //  Created by UTDesign on 9/17/23.
 //
@@ -14,6 +14,7 @@ import CoreBluetooth
  */
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     @Published var centralManager: CBCentralManager!//create instance of central manager
+    @Published var peripheralState: String = "N/A"
     private var cuffPeripheral: CBPeripheral!       //create instance of peripheral
     private var txCharacteristic: CBCharacteristic!
     private var rxCharacteristic: CBCharacteristic!
@@ -32,14 +33,19 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
             print("Is powered on")
             connectToSensor()
         case .unsupported:
-            print("Is unsupoported")
+            print("Is unsupported")
+            peripheralState = "Unsupported"
         case .unauthorized:
             print("Is unauthorized")
+            peripheralState = "Disabled"
         case .unknown:
             print("Is unknown")
+            peripheralState = "Unknown"
         case .resetting:
             print("Resetting")
+            peripheralState = "Resetting"
         @unknown default:
+            peripheralState = "Error"
             print("Error")
         }
     }
@@ -143,7 +149,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     //read characteristic
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?){
-        if let floatValue = characteristic.value?.withUnsafeBytes{ $0.load(as: Float.self) }{
+        if let floatValue = characteristic.value?.withUnsafeBytes({ $0.load(as: Float.self) }){
             print(floatValue)
         }
         else {

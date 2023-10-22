@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A05C9B252AE236390044F472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B242AE236390044F472 /* SettingsView.swift */; };
+		A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* AllProfilesView.swift */; };
+		A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */; };
+		A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2C2AE236960044F472 /* FreeRunView.swift */; };
+		A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */; };
+		A05C9B332AE435FF0044F472 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B322AE435FF0044F472 /* User.swift */; };
+		A05C9B352AE436190044F472 /* BluetoothConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B342AE436190044F472 /* BluetoothConnectView.swift */; };
+		A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */; };
+		A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */; };
+		A05C9B512AE471360044F472 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B502AE471360044F472 /* HeaderView.swift */; };
 		A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */; };
-		A0754B662AB7BE7C00DEB850 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B652AB7BE7C00DEB850 /* ContentView.swift */; };
 		A0754B682AB7BE7F00DEB850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B672AB7BE7F00DEB850 /* Assets.xcassets */; };
 		A0754B6B2AB7BE7F00DEB850 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B6A2AB7BE7F00DEB850 /* Preview Assets.xcassets */; };
 		A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B722AB7DE3D00DEB850 /* BLEController.swift */; };
@@ -16,9 +25,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A05C9B242AE236390044F472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A05C9B282AE2367D0044F472 /* AllProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProfilesView.swift; sourceTree = "<group>"; };
+		A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		A05C9B2C2AE236960044F472 /* FreeRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRunView.swift; sourceTree = "<group>"; };
+		A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleRunView.swift; sourceTree = "<group>"; };
+		A05C9B322AE435FF0044F472 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A05C9B342AE436190044F472 /* BluetoothConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectView.swift; sourceTree = "<group>"; };
+		A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
+		A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActionsView.swift; sourceTree = "<group>"; };
+		A05C9B502AE471360044F472 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A0754B602AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ATC-Sensory-Device-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ATC-Sensory-Device-iOSApp.swift"; sourceTree = "<group>"; };
-		A0754B652AB7BE7C00DEB850 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A0754B672AB7BE7F00DEB850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0754B6A2AB7BE7F00DEB850 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0754B712AB7DDB500DEB850 /* ATC-Sensory-Device-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATC-Sensory-Device-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -40,6 +58,7 @@
 		A0754B572AB7BE7B00DEB850 = {
 			isa = PBXGroup;
 			children = (
+				A0754B712AB7DDB500DEB850 /* ATC-Sensory-Device-iOS-Info.plist */,
 				A0754B622AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS */,
 				A0754B612AB7BE7C00DEB850 /* Products */,
 			);
@@ -56,12 +75,11 @@
 		A0754B622AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */,
-				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
-				A0754B712AB7DDB500DEB850 /* ATC-Sensory-Device-iOS-Info.plist */,
-				A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */,
-				A0754B652AB7BE7C00DEB850 /* ContentView.swift */,
+				A0A9265D2ADF535F003697F6 /* Models */,
+				A0A9265C2ADF5357003697F6 /* ViewModels */,
+				A0A9265B2ADF5353003697F6 /* Views */,
 				A0754B672AB7BE7F00DEB850 /* Assets.xcassets */,
+				A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */,
 				A0754B692AB7BE7F00DEB850 /* Preview Content */,
 			);
 			path = "ATC-Sensory-Device-iOS";
@@ -74,6 +92,39 @@
 			);
 			name = "Preview Content";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A0A9265B2ADF5353003697F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A05C9B502AE471360044F472 /* HeaderView.swift */,
+				A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */,
+				A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */,
+				A05C9B242AE236390044F472 /* SettingsView.swift */,
+				A05C9B342AE436190044F472 /* BluetoothConnectView.swift */,
+				A05C9B2C2AE236960044F472 /* FreeRunView.swift */,
+				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
+				A05C9B282AE2367D0044F472 /* AllProfilesView.swift */,
+				A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A0A9265C2ADF5357003697F6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A0A9265D2ADF535F003697F6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A05C9B322AE435FF0044F472 /* User.swift */,
+				A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,7 +155,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					A0754B5F2AB7BE7C00DEB850 = {
 						CreatedOnToolsVersion = 14.2;
@@ -146,10 +197,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0754B662AB7BE7C00DEB850 /* ContentView.swift in Sources */,
+				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
+				A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
+				A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */,
+				A05C9B252AE236390044F472 /* SettingsView.swift in Sources */,
+				A05C9B352AE436190044F472 /* BluetoothConnectView.swift in Sources */,
+				A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */,
+				A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */,
+				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
 				A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */,
 				A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */,
+				A05C9B512AE471360044F472 /* HeaderView.swift in Sources */,
+				A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +220,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -192,6 +253,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -206,7 +268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -220,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -252,6 +315,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -260,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +347,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ATC-Sensory-Device-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ATC Sensory Cuff";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Can this app always use Bluetooth?";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow app to search for Sensory Cuff";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -290,6 +355,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,6 +384,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ATC-Sensory-Device-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "ATC Sensory Cuff";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Can this app always use Bluetooth?";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow app to search for Sensory Cuff";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -324,6 +392,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

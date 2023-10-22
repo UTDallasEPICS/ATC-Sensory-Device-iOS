@@ -1,6 +1,6 @@
 //
 //  CBUUIDs.swift
-//  ATC Sensory Cuff
+//  ATC-Sensory-Device-iOS
 //
 //  Created by UTDesign on 9/17/23.
 //

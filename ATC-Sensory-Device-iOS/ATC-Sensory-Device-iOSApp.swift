@@ -12,7 +12,8 @@ import SwiftUI
 struct ATC_Sensory_CuffApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //Main app entry point is a splash screen
+            WelcomeScreenView()
         }
     }
 }
