@@ -26,13 +26,13 @@ struct WelcomeScreenView: View {
                         .offset(x: 0, y: -100)
                     VStack {
                         Text("Providing relief from")
-                            .font(Font.system(size: 30))
+                            .font(Font.system(size: 35))
                             .italic()
                             .bold()
                         Text(" sensory overtimulation")
-                            .font(Font.system(size: 30))
+                            .font(Font.system(size: 35))
                             .italic()
-                            .fontWeight(.bold)
+                            .bold()
                     }
                     .frame(width: 400, height: 73, alignment: .center)
                     .foregroundColor(Color("BlueTheme"))
