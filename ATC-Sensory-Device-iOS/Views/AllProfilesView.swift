@@ -14,13 +14,15 @@ struct AllProfilesView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
+                .padding(.bottom, 10)
             VStack {
                 Text("This page is still under construction")
-                Text("Check back later for updates:)")
+                Text("Check back later for updates :)")
             }
             .bold()
             .italic()
         }
+        .offset(y:-20)
     }
 }
 

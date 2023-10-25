@@ -14,7 +14,6 @@ struct AllActionsView: View {
                 //header
                 VStack {
                     HeaderView(title: "Let's Get Started")
-                        .padding(.top, 10)
                     Text("Where would you like to begin?")
                         .bold()
                         .padding(.bottom, 30)

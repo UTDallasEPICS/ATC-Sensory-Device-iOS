@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct InteractiveSlider: View {
-    @State var sliderValue: Double = 0
+    //variable to pass a value from child to parent
     @Binding var valToSave: Double
+    
+    @State private var sliderValue: Double = 0
     
     //values must be provided upon instansiation
     var sliderDescription: String!

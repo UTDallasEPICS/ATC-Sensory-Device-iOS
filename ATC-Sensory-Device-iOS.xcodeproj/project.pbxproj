@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0430BEA2AE96B3900B4CBDD /* BLEData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0430BE92AE96B3900B4CBDD /* BLEData.swift */; };
 		A05C9B252AE236390044F472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B242AE236390044F472 /* SettingsView.swift */; };
 		A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* AllProfilesView.swift */; };
 		A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0430BE92AE96B3900B4CBDD /* BLEData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEData.swift; sourceTree = "<group>"; };
 		A05C9B242AE236390044F472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A05C9B282AE2367D0044F472 /* AllProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProfilesView.swift; sourceTree = "<group>"; };
 		A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -99,8 +101,8 @@
 		A0A9265B2ADF5353003697F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A05C9B502AE471360044F472 /* HeaderView.swift */,
 				A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */,
+				A05C9B502AE471360044F472 /* HeaderView.swift */,
 				A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */,
 				A05C9B242AE236390044F472 /* SettingsView.swift */,
 				A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */,
@@ -116,6 +118,7 @@
 		A0A9265C2ADF5357003697F6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A0430BE92AE96B3900B4CBDD /* BLEData.swift */,
 				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
 			);
 			path = ViewModels;
@@ -202,6 +205,7 @@
 			files = (
 				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
 				A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */,
+				A0430BEA2AE96B3900B4CBDD /* BLEData.swift in Sources */,
 				A0ADEEB22AE8997500441D13 /* RealTimePlotView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
 				A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */,

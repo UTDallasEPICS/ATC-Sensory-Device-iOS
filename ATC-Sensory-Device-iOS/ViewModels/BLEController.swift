@@ -18,8 +18,8 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     private var txCharacteristic: CBCharacteristic!
     private var rxCharacteristic: CBCharacteristic!
     
-    //check if bluetooth permissions are granted
-    //computed property
+    @Published var isBluetoothPermissionGranted: Bool!
+    //computed property to check if bluetooth permissions are enabled
     var authorizationStatus: Bool {
         if #available(iOS 13.1, *){
             return CBCentralManager().authorization == .allowedAlways
@@ -27,48 +27,65 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         //before iOS 13, bluetooth permissions are not required
         return true
     }
-    @Published var isBluetoothPermissionGranted: Bool!
+    
+    @Published var connectionStatus: Bool!
+    @Published var message: String!
     
     override init(){
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
         self.isBluetoothPermissionGranted = authorizationStatus
+        self.connectionStatus = false
+        self.message = "Disconnected"
     }
     
-    
-    //is device is on? scan for peripherals.
+    //central is the iOS device
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch central.state {
         case .poweredOff:
-            print("Is powered off")
+            print("Central powered off")
+            break
         case .poweredOn:
-            print("Is powered on")
-            connectToSensor()
+            print("Central powered on")
+            break
         case .unsupported:
-            print("Is unsupported")
+            print("Central unsupported")
+            break
         case .unauthorized:
-            print("Is unauthorized")
+            print("Central unauthorized")
+            break
         case .unknown:
-            print("Is unknown")
+            print("Central unknown")
+            break
         case .resetting:
-            print("Is Resetting")
+            print("Central Resetting")
+            break
         @unknown default:
             print("Error")
+            break
         }
     }
     
-    //scan for peripherals
-    func connectToSensor(){
-        centralManager.scanForPeripherals(withServices: [CBUUIDs.BLEService_UUID], options: nil)
-        print("Connected")
+    func connectSensor(){
+        scanSensors()
+        print("Connected connectSensor")
+        connectionStatus = true
+        message = "Connected"
     }
     
     //disconnect or cancel an active or pending local connection
-    func disconnectFromSensor(){
+    func disconnectSensor(){
         if cuffPeripheral != nil {
             centralManager.cancelPeripheralConnection(cuffPeripheral!)
         }
         print("Disconnected")
+        connectionStatus = false
+        message = "Disconnected"
+    }
+    
+    //scan for peripherals
+    func scanSensors(){
+        centralManager.scanForPeripherals(withServices: [CBUUIDs.BLEService_UUID], options: nil)
     }
     
     //assign a local peripheral
@@ -139,7 +156,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
             print("Peripheral is unsupported")
             break
         case .unauthorized:
-            print("Peripheral unknown")
+            print("Peripheral is unauthorized")
             break
         case .resetting:
             print("Peripheral resetting")
@@ -149,8 +166,10 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
             break
         case .unknown:
             print("Error. Unknown peripheral state")
+            break
         @unknown default:
             print("Error. Unknown peripheral state")
+            break
         }
     }
     

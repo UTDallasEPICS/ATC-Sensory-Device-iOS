@@ -8,53 +8,111 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @StateObject var bleController = BLEController()
-    
-    //default status
-    @State var status: String = "Unknown"
-    
-    //default button color
-    @State var statusButtonColor: Color = .gray
+    //allows us to view @Published properties
+    @EnvironmentObject var bleController: BLEController
+    @State private var permissionStatus: String = "Unknown"
+    @State private var enableButtonColor: Color!
     
     var body: some View {
-        HeaderView(title: "Settings")
-            .offset(y: -245)
-        
         VStack {
-            Text("App Permissions")
-                .bold()
-                .font(.title)
+            HeaderView(title: "Settings")
+                .offset(y:-150)
             
-            Button(
-                action: {self.openDeviceSettings()},
-                label: {
-                    HStack {
-                        Image(systemName: "arrow.up.forward.app.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 45, height: 45)
-                            .offset(x: -20)
-                        Text("**Bluetooth \(status)**")
-                            .onReceive(bleController.$isBluetoothPermissionGranted,
-                                       perform: { isGranted in
-                                self.status = isGranted ?? false ? "Enabled" : "not Enabled"
-                                self.statusButtonColor = isGranted ?? false ? Color("BlueTheme") : .red
-                            })
-                            .font(.system(size: 22))
-                            .multilineTextAlignment(.center)
+            VStack {
+                Text("App Permissions")
+                    .bold()
+                    .font(.title)
+                
+                Button(
+                    action: {self.openDeviceSettings()},
+                    label: {
+                        HStack {
+                            Image(systemName: "arrow.up.forward.app.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 45, height: 45)
+                                .offset(x: -20)
+                            Text("**Bluetooth \(permissionStatus)**")
+                                .onReceive(bleController.$isBluetoothPermissionGranted,
+                                           perform: { isGranted in
+                                    self.permissionStatus = isGranted ?? false ? "Enabled" : "not Enabled"
+                                    self.enableButtonColor = isGranted ?? false ? Color("BlueTheme") : .red
+                                })
+                                .font(.system(size: 22))
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(width: 348, height: 85)
+                        .background(enableButtonColor)
+                        .cornerRadius(25)
                     }
-                    .frame(width: 348, height: 85)
-                    .background(statusButtonColor)
-                    .cornerRadius(25)
+                )
+                Text("Hint: Click to open iOS Settings App")
+                    .italic()
+                    .foregroundColor(.gray)
+                    .font(.footnote)
+            }
+            .foregroundColor(.black)
+            .offset(y:-80)
+            
+            
+            VStack {
+                Text("App Actions")
+                    .bold()
+                    .font(.title)
+                
+                Text("Hint: Check to make sure the device is on")
+                    .bold()
+                    .italic()
+                    .font(.headline)
+                
+                VStack {
+                    //connect to device
+                    Button(
+                        action: {bleController.connectSensor()},
+                        label: {
+                            HStack {
+                                Image(systemName: "wifi")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .offset(x: -20)
+                                Text("Connect Device")
+                                    .bold()
+                                    .font(.headline)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .frame(width: 250, height: 70)
+                            .foregroundColor(.black)
+                            .background(Color("BlueTheme"))
+                            .cornerRadius(25)
+                        }
+                    )
+                    .padding(.bottom, 10)
+                    //disconnect from to device
+                    Button(
+                        action: {bleController.disconnectSensor()},
+                        label: {
+                            HStack {
+                                Image(systemName: "wifi.slash")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .offset(x: -10)
+                                Text("Disconnect Device")
+                                    .bold()
+                                    .font(.headline)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .frame(width: 250, height: 70)
+                            .foregroundColor(.black)
+                            .background(Color("GreenTheme"))
+                            .cornerRadius(25)
+                        }
+                    )
                 }
-            )
-            Text("Hint: Click to open iOS Settings App")
-                .italic()
-                .foregroundColor(.gray)
-                .font(.footnote)
+            }
+            .offset(y:-25)
         }
-        .foregroundColor(.black)
-        .offset(y:-215)
     }
     
     private func openDeviceSettings(){
@@ -70,3 +128,7 @@ struct SettingsView: View {
 #Preview {
     SettingsView()
 }
+
+/*
+ @StateObject should be used only once per object. In this case, the settingsview is responsible for creating the object. Free run and cycle run views should be @ObservedObject
+ */

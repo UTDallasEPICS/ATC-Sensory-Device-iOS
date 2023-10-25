@@ -17,14 +17,13 @@ struct HeaderView: View {
                 .cornerRadius(10)
                 .frame(width: 60, height: 60)
                 .offset(x: 140, y: -10)
-                .padding(.bottom, 50)
+                .padding(.bottom, 30)
             Text(title)
                 .font(.system(size: 40))
                 .bold()
                 .offset(y: 30)
         }
         .frame(width: 400, height: 100)
-        //.background(Color("GreenTheme"))
     }
 }
 

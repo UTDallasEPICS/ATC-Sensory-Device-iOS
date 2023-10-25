@@ -8,40 +8,35 @@
 import SwiftUI
 
 struct CycleRunView: View {
+    @EnvironmentObject var bleController: BLEController
+    @State private var startButtonColor: Color!
+    @State private var stopButtonColor: Color!
+    @State private var statusTextColor: Color!
+    @State private var opacity: Double = 0.0
+    @State private var disableActions: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
                 HeaderView(title: "Cycle Run")
-                    .offset(y: -80)
+                    .offset(y: -120)
                 
                 VStack {
-                    //connect to device
-                    Button(
-                        action: {},
-                        label: {
-                            HStack {
-                                Image(systemName: "iphone.gen3.radiowaves.left.and.right.circle.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 45, height: 45)
-                                    .offset(x: -10)
-                                Text("Connect to Device")
-                                    .bold()
-                                    .font(.headline)
-                                    .multilineTextAlignment(.center)
-                            }
-                            .frame(width: 250, height: 70)
-                            .foregroundColor(.black)
-                            .background(Color("BlueTheme"))
-                            .cornerRadius(25)
-                        }
-                    )
-                    .offset(y: -30)
-                    
-                    
-                    //start cycle
+                    //display connection status
+                    Text("Device Status: \(bleController.message)")
+                        .onReceive(bleController.$connectionStatus, perform: { deviceStatus in
+                            self.statusTextColor = (deviceStatus ?? false) ? .green : .red
+                            self.opacity = (deviceStatus ?? false) ? 0.0 : 1.0
+                            self.startButtonColor = (deviceStatus ?? false) ? Color("GreenTheme") : .gray
+                            self.stopButtonColor = (deviceStatus ?? false) ? Color("BlueTheme") : .gray
+                            self.disableActions = (deviceStatus ?? false) ? false : true
+                        })
+                        .bold()
+                        .font(.headline)
+                        .foregroundColor(statusTextColor)
+                        .offset(y:-80)
+
                     VStack {
-                        //send deflate command
                         Button(
                             action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
                             label: {
@@ -53,11 +48,11 @@ struct CycleRunView: View {
                                 }
                                 .frame(width: 120, height: 60)
                                 .foregroundColor(.black)
-                                .background(Color("GreenTheme"))
+                                .background(startButtonColor)
                                 .cornerRadius(25)
                             }
                         )
-
+                        .offset(y: -10)
                         Button(
                             action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
                             label: {
@@ -69,18 +64,20 @@ struct CycleRunView: View {
                                 }
                                 .frame(width: 120, height: 60)
                                 .foregroundColor(.black)
-                                .background(Color("BlueTheme"))
+                                .background(stopButtonColor)
                                 .cornerRadius(25)
                             }
                         )
-                        .offset(y: 20)
+                        .offset(y: 10)
                     }
-                    .offset(y: 10)
+                    .offset(y: -40)
                 }
+                .disabled(disableActions)
+                .offset(y:10)
                 
                 //swift plot
                 RealTimePlotView()
-                    .offset(y: 60)
+                    .offset(y:50)
                 
                 //go to settings
                 HStack {
@@ -99,9 +96,9 @@ struct CycleRunView: View {
                         }
                     )
                 }
-                .offset(x: 140, y: 90)
+                .offset(x: 140, y: 110)
             }//end of VStack
-            .navigationBarTitle("Cycle Run", displayMode:.inline)
+            .navigationBarTitle("Free Run", displayMode:.inline)
             .navigationBarHidden(true)
         }//end of NavigationView
         .accentColor(Color(.label))
