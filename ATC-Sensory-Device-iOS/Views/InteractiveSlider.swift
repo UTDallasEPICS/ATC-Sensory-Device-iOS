@@ -18,12 +18,14 @@ struct InteractiveSlider: View {
     var colorGradient: [Color]!
     var minValue: Double!
     var maxValue: Double!
+    var unit: String!
     
     var body: some View {
         VStack {
-            Text("Set \(sliderDescription): \(sliderValue,specifier: "%0.\(displaySpec)f") s")
+            Text("Set \(sliderDescription): \(sliderValue,specifier: "%0.\(displaySpec)f") \(unit)")
                 .bold()
                 .font(.headline)
+                .offset(x: 10)
             
             
             ZStack {
@@ -57,6 +59,7 @@ struct InteractiveSlider: View {
                     .opacity(0.25)
             }
             .frame(width:350)
+            .padding(.top, -50)
         }
         .frame(width:300, height: 100)
     }
@@ -64,5 +67,5 @@ struct InteractiveSlider: View {
 }
 
 #Preview {
-    InteractiveSlider(valToSave: .constant(15), sliderDescription: "peepeepoopoo", displaySpec: 3, stepSize: 3, colorGradient: [.green, .yellow, .red], minValue: 1, maxValue: 45)
+                InteractiveSlider(valToSave: .constant(15), sliderDescription: "Default Value", displaySpec: 1, stepSize: 1, colorGradient: [.green, .yellow, .red], minValue: 1, maxValue: 30, unit: "s")
 }

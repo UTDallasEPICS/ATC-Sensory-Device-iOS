@@ -14,15 +14,27 @@ import CoreBluetooth
  */
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     @Published var centralManager: CBCentralManager!//create instance of central manager
-    @Published var peripheralState: String = "N/A"
     private var cuffPeripheral: CBPeripheral!       //create instance of peripheral
     private var txCharacteristic: CBCharacteristic!
     private var rxCharacteristic: CBCharacteristic!
-        
+    
+    //check if bluetooth permissions are granted
+    //computed property
+    var authorizationStatus: Bool {
+        if #available(iOS 13.1, *){
+            return CBCentralManager().authorization == .allowedAlways
+        }
+        //before iOS 13, bluetooth permissions are not required
+        return true
+    }
+    @Published var isBluetoothPermissionGranted: Bool!
+    
     override init(){
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
+        self.isBluetoothPermissionGranted = authorizationStatus
     }
+    
     
     //is device is on? scan for peripherals.
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -34,18 +46,13 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
             connectToSensor()
         case .unsupported:
             print("Is unsupported")
-            peripheralState = "Unsupported"
         case .unauthorized:
             print("Is unauthorized")
-            peripheralState = "Disabled"
         case .unknown:
             print("Is unknown")
-            peripheralState = "Unknown"
         case .resetting:
-            print("Resetting")
-            peripheralState = "Resetting"
+            print("Is Resetting")
         @unknown default:
-            peripheralState = "Error"
             print("Error")
         }
     }
@@ -63,7 +70,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         }
         print("Disconnected")
     }
-        
+    
     //assign a local peripheral
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         cuffPeripheral = peripheral                       //set cuffPeripheral variable to new peripheral found
@@ -155,7 +162,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         else {
             print("Data is not suitable for conversion to a float.")
         }
-     }
+    }
     
     //write characteristic
     func writeOutgoingValue(value: Float) {
@@ -170,9 +177,9 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         print(floatBytes as NSData)
         
         if let cuffPeripheral = cuffPeripheral{
-        //enter block if cuffPeripheral exists i.e. is not nil
+            //enter block if cuffPeripheral exists i.e. is not nil
             if let txCharacteristic = txCharacteristic {
-            //enter block if txCharacteristic is not nil
+                //enter block if txCharacteristic is not nil
                 cuffPeripheral.writeValue(((floatBytes as NSData) as Data), for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
                 
             }
@@ -187,7 +194,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
  *Service - encapsulates the way part of the device behaves
  *Characteristics - services contain characteristics or included services i.e references to other services
  *an ! at the end of a type indicates that a variable is initially empty or has no value.
-     You're promising that you'll set a value before trying to use it
+ You're promising that you'll set a value before trying to use it
  *
  */
 

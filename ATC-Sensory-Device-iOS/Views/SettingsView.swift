@@ -9,30 +9,21 @@ import SwiftUI
 
 struct SettingsView: View {
     @StateObject var bleController = BLEController()
-    @State var holdTime: Double = 15
-        
+    
+    //default status
+    @State var status: String = "Unknown"
+    
+    //default button color
+    @State var statusButtonColor: Color = .gray
+    
     var body: some View {
         HeaderView(title: "Settings")
-            .offset(y: -70)
+            .offset(y: -245)
         
         VStack {
-            Text("Bluetooth Settings")
+            Text("App Permissions")
                 .bold()
                 .font(.title)
-            HStack {
-                Image(systemName: "iphone.gen3.radiowaves.left.and.right.circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .offset(x: -65)
-                Text("Bluetooth: \n\(bleController.peripheralState)")
-                    .bold()
-                    .font(.system(size: 22))
-                    .multilineTextAlignment(.center)
-            }
-            .frame(width: 348, height: 85)
-            .background(Color("BlueTheme"))
-            .cornerRadius(25)
             
             Button(
                 action: {self.openDeviceSettings()},
@@ -42,63 +33,28 @@ struct SettingsView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 45, height: 45)
-                            .offset(x: -55)
-                        Text("Open Settings")
-                            .bold()
+                            .offset(x: -20)
+                        Text("**Bluetooth \(status)**")
+                            .onReceive(bleController.$isBluetoothPermissionGranted,
+                                       perform: { isGranted in
+                                self.status = isGranted ?? false ? "Enabled" : "not Enabled"
+                                self.statusButtonColor = isGranted ?? false ? Color("BlueTheme") : .red
+                            })
                             .font(.system(size: 22))
+                            .multilineTextAlignment(.center)
                     }
                     .frame(width: 348, height: 85)
-                    .background(Color("GreenTheme"))
+                    .background(statusButtonColor)
                     .cornerRadius(25)
                 }
             )
-        }
-        .foregroundColor(.black)
-        .padding(.bottom, 40)
-        
-        
-        VStack {
-            Text("General Settings")
-                .bold()
-                .font(.title)
-                .padding(.bottom, 10)
-            
-            Text("Set Hold Time: \(holdTime,specifier:"%0.0f") s")
-                .bold()
-                .font(.headline)
-            
-            
-            ZStack {
-                //mask for gradient slider
-                LinearGradient(gradient: Gradient(colors: [.green, .blue]),
-                               startPoint: .leading,
-                               endPoint: .trailing
-                )
-                .mask(
-                    Slider(value: $holdTime,
-                           in: 1...30,
-                           step: 1,
-                           minimumValueLabel: Text("1").bold(),
-                           maximumValueLabel: Text("30").bold()
-                    ){ Text("Title") }
-                )
-                
-                //actual movable slider
-                Slider(value: $holdTime,
-                       in: 1...30,
-                       step: 1,
-                       minimumValueLabel: Text("1"),
-                       maximumValueLabel: Text("30")
-                ){ Text("Title") }
-                    .accentColor(.clear)
-                    .opacity(0.05)
-            }
-            .frame(width:300)
-            Text("Value is saved automatically")
-                .bold()
+            Text("Hint: Click to open iOS Settings App")
+                .italic()
+                .foregroundColor(.gray)
                 .font(.footnote)
         }
-        .frame(width:300, height: 200)
+        .foregroundColor(.black)
+        .offset(y:-215)
     }
     
     private func openDeviceSettings(){

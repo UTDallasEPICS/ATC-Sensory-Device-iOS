@@ -13,7 +13,6 @@
 		A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2C2AE236960044F472 /* FreeRunView.swift */; };
 		A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */; };
 		A05C9B332AE435FF0044F472 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B322AE435FF0044F472 /* User.swift */; };
-		A05C9B352AE436190044F472 /* BluetoothConnectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B342AE436190044F472 /* BluetoothConnectView.swift */; };
 		A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */; };
 		A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */; };
 		A05C9B512AE471360044F472 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B502AE471360044F472 /* HeaderView.swift */; };
@@ -22,6 +21,8 @@
 		A0754B6B2AB7BE7F00DEB850 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B6A2AB7BE7F00DEB850 /* Preview Assets.xcassets */; };
 		A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B722AB7DE3D00DEB850 /* BLEController.swift */; };
 		A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */; };
+		A0AC250D2AE8725A00E10098 /* InteractiveSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */; };
+		A0ADEEB22AE8997500441D13 /* RealTimePlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADEEB12AE8997500441D13 /* RealTimePlotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,6 @@
 		A05C9B2C2AE236960044F472 /* FreeRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRunView.swift; sourceTree = "<group>"; };
 		A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleRunView.swift; sourceTree = "<group>"; };
 		A05C9B322AE435FF0044F472 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A05C9B342AE436190044F472 /* BluetoothConnectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectView.swift; sourceTree = "<group>"; };
 		A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
 		A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActionsView.swift; sourceTree = "<group>"; };
 		A05C9B502AE471360044F472 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -42,6 +42,8 @@
 		A0754B712AB7DDB500DEB850 /* ATC-Sensory-Device-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATC-Sensory-Device-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0754B722AB7DE3D00DEB850 /* BLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUUIDs.swift; sourceTree = "<group>"; };
+		A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlider.swift; sourceTree = "<group>"; };
+		A0ADEEB12AE8997500441D13 /* RealTimePlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePlotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +103,12 @@
 				A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */,
 				A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */,
 				A05C9B242AE236390044F472 /* SettingsView.swift */,
-				A05C9B342AE436190044F472 /* BluetoothConnectView.swift */,
+				A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */,
 				A05C9B2C2AE236960044F472 /* FreeRunView.swift */,
 				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
 				A05C9B282AE2367D0044F472 /* AllProfilesView.swift */,
 				A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */,
+				A0ADEEB12AE8997500441D13 /* RealTimePlotView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,13 +202,14 @@
 			files = (
 				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
 				A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */,
+				A0ADEEB22AE8997500441D13 /* RealTimePlotView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
 				A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */,
 				A05C9B252AE236390044F472 /* SettingsView.swift in Sources */,
-				A05C9B352AE436190044F472 /* BluetoothConnectView.swift in Sources */,
 				A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */,
 				A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */,
 				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
+				A0AC250D2AE8725A00E10098 /* InteractiveSlider.swift in Sources */,
 				A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */,
 				A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */,
 				A05C9B512AE471360044F472 /* HeaderView.swift in Sources */,
@@ -353,10 +357,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,10 +395,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

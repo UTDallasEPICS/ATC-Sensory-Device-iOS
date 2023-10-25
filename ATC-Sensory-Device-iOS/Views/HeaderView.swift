@@ -20,7 +20,7 @@ struct HeaderView: View {
                 .padding(.bottom, 50)
             Text(title)
                 .font(.system(size: 40))
-                .fontWeight(.bold)
+                .bold()
                 .offset(y: 30)
         }
         .frame(width: 400, height: 100)
