@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct FreeRunView: View {
+    //access global instance of bleController
+    @EnvironmentObject var bleController: BLEController
+    
     @State var holdTime: Double = 1.0
     @State var targetPressure: Double = 14.0
-    @EnvironmentObject var bleController: BLEController
     @State private var inflateButtonColor: Color!
     @State private var deflateButtonColor: Color!
     @State private var statusTextColor: Color!
@@ -26,30 +28,38 @@ struct FreeRunView: View {
                 VStack {
                     //display connection status
                     Text("Device Status: \(bleController.message)")
-                        .onReceive(bleController.$message, 
-                                   perform: {mess in
-                            print("\(String(describing: mess))")
-                        })
-                        /*
                         .onReceive(bleController.$connectionStatus, perform: { deviceStatus in
                             self.statusTextColor = (deviceStatus ?? false) ? .green : .red
                             self.opacity = (deviceStatus ?? false) ? 0.0 : 1.0
                             self.inflateButtonColor = (deviceStatus ?? false) ? Color("BlueTheme") : .gray
                             self.deflateButtonColor = (deviceStatus ?? false) ? Color("GreenTheme") : .gray
                             self.disableActions = (deviceStatus ?? false) ? false : true
-                            print("\(String(describing: deviceStatus))")
                         })
-                         */
                         .bold()
                         .font(.headline)
                         .foregroundColor(statusTextColor)
                         .padding(.bottom, 20)
-
+                    
                     VStack {
-                        InteractiveSlider(valToSave: $holdTime, sliderDescription: "Hold Time", displaySpec: 0, stepSize: 1, colorGradient: [.green, .blue], minValue: 1, maxValue: 30, unit: "s")
-                        Text("\(holdTime)")
+                        InteractiveSlider(valToSave: $holdTime,
+                                          sliderDescription: "Hold Time",
+                                          displaySpec: 0,
+                                          stepSize: 1,
+                                          colorGradient: [.green, .blue],
+                                          minValue: 1,
+                                          maxValue: 30,
+                                          unit: "s"
+                        )
                         VStack {
-                            InteractiveSlider(valToSave: $targetPressure, sliderDescription: "Target Pressure", displaySpec: 1, stepSize: 0.1, colorGradient: [.green, .yellow, .red], minValue: 14.0, maxValue: 15.3, unit: "psi")
+                            InteractiveSlider(valToSave: $targetPressure,
+                                              sliderDescription: "Target Pressure",
+                                              displaySpec: 1,
+                                              stepSize: 0.1,
+                                              colorGradient: [.green, .yellow, .red],
+                                              minValue: 14.0,
+                                              maxValue: 15.3,
+                                              unit: "psi"
+                            )
                             
                             HStack {
                                 Text("**L**")
@@ -105,6 +115,7 @@ struct FreeRunView: View {
                 }
                 .disabled(disableActions)
                 .offset(y:10)
+                
                 //swift plot
                 RealTimePlotView()
                 
@@ -125,7 +136,7 @@ struct FreeRunView: View {
                         }
                     )
                 }
-                .offset(x: 140, y: 20)
+                .offset(x: 140, y: 10)
             }//end of VStack
             .navigationBarTitle("Free Run", displayMode:.inline)
             .navigationBarHidden(true)
@@ -136,4 +147,5 @@ struct FreeRunView: View {
 
 #Preview {
     FreeRunView()
+        .environmentObject(BLEController())
 }

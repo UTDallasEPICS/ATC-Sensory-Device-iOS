@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InteractiveSlider: View {
+    @EnvironmentObject var bleController: BLEController
+    
     //variable to pass a value from child to parent
     @Binding var valToSave: Double
     
@@ -69,5 +71,6 @@ struct InteractiveSlider: View {
 }
 
 #Preview {
-                InteractiveSlider(valToSave: .constant(15), sliderDescription: "Default Value", displaySpec: 1, stepSize: 1, colorGradient: [.green, .yellow, .red], minValue: 1, maxValue: 30, unit: "s")
+    InteractiveSlider(valToSave: .constant(15), sliderDescription: "Default Value", displaySpec: 1, stepSize: 1, colorGradient: [.green, .yellow, .red], minValue: 1, maxValue: 30, unit: "s")
+        .environmentObject(BLEController())
 }

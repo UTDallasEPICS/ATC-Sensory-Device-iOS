@@ -9,15 +9,18 @@ import SwiftUI
 import Charts
 
 struct RealTimePlotView: View {
+    //access global instance of bleController
+    @EnvironmentObject var bleController: BLEController
+    
+    //create array variable for line mark data
+    @State private var lineMarkData: [(Float, Float)]!
+    
     var body: some View {
-        Text("Real-Time Pressure Reading (PSI)")
-            .italic()
-            .bold()
-            .frame(width: 300, height: 200)
-            .border(.red)
+        Text("Hello World")
     }
 }
 
 #Preview {
     RealTimePlotView()
+        .environmentObject(BLEController())
 }

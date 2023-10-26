@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CycleRunView: View {
+    //access global instance of bleController
     @EnvironmentObject var bleController: BLEController
+    
     @State private var startButtonColor: Color!
     @State private var stopButtonColor: Color!
     @State private var statusTextColor: Color!
-    @State private var opacity: Double = 0.0
     @State private var disableActions: Bool = false
     
     var body: some View {
@@ -26,7 +27,6 @@ struct CycleRunView: View {
                     Text("Device Status: \(bleController.message)")
                         .onReceive(bleController.$connectionStatus, perform: { deviceStatus in
                             self.statusTextColor = (deviceStatus ?? false) ? .green : .red
-                            self.opacity = (deviceStatus ?? false) ? 0.0 : 1.0
                             self.startButtonColor = (deviceStatus ?? false) ? Color("GreenTheme") : .gray
                             self.stopButtonColor = (deviceStatus ?? false) ? Color("BlueTheme") : .gray
                             self.disableActions = (deviceStatus ?? false) ? false : true
@@ -48,7 +48,7 @@ struct CycleRunView: View {
                                 }
                                 .frame(width: 120, height: 60)
                                 .foregroundColor(.black)
-                                .background(startButtonColor)
+                                .background(stopButtonColor)
                                 .cornerRadius(25)
                             }
                         )
@@ -64,7 +64,7 @@ struct CycleRunView: View {
                                 }
                                 .frame(width: 120, height: 60)
                                 .foregroundColor(.black)
-                                .background(stopButtonColor)
+                                .background(startButtonColor)
                                 .cornerRadius(25)
                             }
                         )
@@ -107,4 +107,5 @@ struct CycleRunView: View {
 
 #Preview {
     CycleRunView()
+        .environmentObject(BLEController())
 }

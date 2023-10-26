@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    //allows us to view @Published properties
+    //access global instance of bleController
     @EnvironmentObject var bleController: BLEController
     @State private var permissionStatus: String = "Unknown"
     @State private var enableButtonColor: Color!
@@ -127,6 +127,7 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(BLEController())
 }
 
 /*

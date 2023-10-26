@@ -7,29 +7,37 @@
 
 import Foundation
 import CoreBluetooth
+import Dispatch
 
 /*
  *Class that has methods to connect to a sensor, scan and connect to peripherals,
  *discover services, characteristics, and read value for a characteristic
  */
+
+
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
+    //required variables
     @Published var centralManager: CBCentralManager!//create instance of central manager
     private var cuffPeripheral: CBPeripheral!       //create instance of peripheral
     private var txCharacteristic: CBCharacteristic!
     private var rxCharacteristic: CBCharacteristic!
     
-    @Published var isBluetoothPermissionGranted: Bool!
-    //computed property to check if bluetooth permissions are enabled
+    //custom variables
     var authorizationStatus: Bool {
+        //computed property to check if bluetooth permissions are enabled
         if #available(iOS 13.1, *){
             return CBCentralManager().authorization == .allowedAlways
         }
         //before iOS 13, bluetooth permissions are not required
         return true
     }
-    
+    private var startTime: DispatchTime?
+    //custom published properties
+    @Published var isBluetoothPermissionGranted: Bool!
     @Published var connectionStatus: Bool!
     @Published var message: String!
+    @Published var currPressureValue: Float!
+    @Published var time: Float!
     
     override init(){
         super.init()
@@ -37,6 +45,8 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         self.isBluetoothPermissionGranted = authorizationStatus
         self.connectionStatus = false
         self.message = "Disconnected"
+        self.currPressureValue = 0.0
+        self.time = 0.0
     }
     
     //central is the iOS device
@@ -68,9 +78,6 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     func connectSensor(){
         scanSensors()
-        print("Connected connectSensor")
-        connectionStatus = true
-        message = "Connected"
     }
     
     //disconnect or cancel an active or pending local connection
@@ -81,6 +88,8 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         print("Disconnected")
         connectionStatus = false
         message = "Disconnected"
+        //reset startTime so next time device is connected, the new start time is recorded
+        startTime = nil
     }
     
     //scan for peripherals
@@ -99,6 +108,9 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         //stop scanning for peripherals
         centralManager.stopScan()
         centralManager.connect(cuffPeripheral!, options: nil)
+        print("Connected")
+        connectionStatus = true
+        message = "Connected"
     }
     
     //discover services
@@ -175,8 +187,12 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     //read characteristic
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?){
+        if startTime == nil{    //capture start time only if variable is empty
+            startTime = DispatchTime.now()
+        }
         if let floatValue = characteristic.value?.withUnsafeBytes({ $0.load(as: Float.self) }){
-            print(floatValue)
+            currPressureValue = floatValue
+            time = calculateElapsedTime(time: DispatchTime.now())
         }
         else {
             print("Data is not suitable for conversion to a float.")
@@ -203,6 +219,11 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
                 
             }
         }
+    }
+    
+    private func calculateElapsedTime(time: DispatchTime) -> Float{
+        let elapsedNanoSeconds = time.uptimeNanoseconds - (startTime?.uptimeNanoseconds ?? time.uptimeNanoseconds)
+        return (Float(elapsedNanoSeconds)/1_000_000_000.0)  //convert nanoseconds to seconds
     }
 }
 
