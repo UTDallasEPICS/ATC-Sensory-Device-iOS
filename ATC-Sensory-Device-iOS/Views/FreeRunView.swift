@@ -117,12 +117,26 @@ struct FreeRunView: View {
                     .disabled(disableActions)
                     .offset(y:10)
                 }
-                .offset(y:45)
+                .offset(y:-10)
                 //swift plot
                 VStack {
-                    RealTimeChartWrapper()
+                    Text("Live Pressure Reading (PSI)")
+                        .bold()
+                        .font(.headline)
+                    if (!disableActions){
+                        VStack {
+                            RealTimePlotView()
+                        }
+                    }
+                    else {
+                        Text("Connect Device to View Live Pressure Plot")
+                            .bold()
+                            .italic()
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                    }
                 }
-                .frame(height: 300)
+                .frame(width: 350, height: 200)
                 .offset(y:10)
                 
                 //go to settings
@@ -142,7 +156,7 @@ struct FreeRunView: View {
                         }
                     )
                 }
-                .offset(x: 140, y: -40)
+                .offset(x: 140, y: 25)
             }//end of VStack
             .navigationBarTitle("Free Run", displayMode:.inline)
             .navigationBarHidden(true)
