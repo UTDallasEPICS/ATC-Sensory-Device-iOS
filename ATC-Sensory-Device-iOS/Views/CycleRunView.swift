@@ -19,65 +19,70 @@ struct CycleRunView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView(title: "Cycle Run")
-                    .offset(y: -120)
-                
                 VStack {
-                    //display connection status
-                    Text("Device Status: \(bleController.message)")
-                        .onReceive(bleController.$connectionStatus, perform: { deviceStatus in
-                            self.statusTextColor = (deviceStatus ?? false) ? .green : .red
-                            self.startButtonColor = (deviceStatus ?? false) ? Color("GreenTheme") : .gray
-                            self.stopButtonColor = (deviceStatus ?? false) ? Color("BlueTheme") : .gray
-                            self.disableActions = (deviceStatus ?? false) ? false : true
-                        })
-                        .bold()
-                        .font(.headline)
-                        .foregroundColor(statusTextColor)
-                        .offset(y:-80)
-
+                    HeaderView(title: "Cycle Run")
+                        .offset(y: -120)
+                    
                     VStack {
-                        Button(
-                            action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
-                            label: {
-                                HStack {
-                                    Text("Start")
-                                        .bold()
-                                        .font(.headline)
-                                        .multilineTextAlignment(.center)
+                        //display connection status
+                        Text("Device Status: \(bleController.message)")
+                            .onReceive(bleController.$connectionStatus, perform: { deviceStatus in
+                                self.statusTextColor = (deviceStatus ?? false) ? .green : .red
+                                self.startButtonColor = (deviceStatus ?? false) ? Color("GreenTheme") : .gray
+                                self.stopButtonColor = (deviceStatus ?? false) ? Color("BlueTheme") : .gray
+                                self.disableActions = (deviceStatus ?? false) ? false : true
+                            })
+                            .bold()
+                            .font(.headline)
+                            .foregroundColor(statusTextColor)
+                            .offset(y:-80)
+                        
+                        VStack {
+                            Button(
+                                action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
+                                label: {
+                                    HStack {
+                                        Text("Start")
+                                            .bold()
+                                            .font(.headline)
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .frame(width: 120, height: 60)
+                                    .foregroundColor(.black)
+                                    .background(stopButtonColor)
+                                    .cornerRadius(25)
                                 }
-                                .frame(width: 120, height: 60)
-                                .foregroundColor(.black)
-                                .background(stopButtonColor)
-                                .cornerRadius(25)
-                            }
-                        )
-                        .offset(y: -10)
-                        Button(
-                            action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
-                            label: {
-                                HStack {
-                                    Text("Stop")
-                                        .bold()
-                                        .font(.headline)
-                                        .multilineTextAlignment(.center)
+                            )
+                            .offset(y: -10)
+                            Button(
+                                action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
+                                label: {
+                                    HStack {
+                                        Text("Stop")
+                                            .bold()
+                                            .font(.headline)
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .frame(width: 120, height: 60)
+                                    .foregroundColor(.black)
+                                    .background(startButtonColor)
+                                    .cornerRadius(25)
                                 }
-                                .frame(width: 120, height: 60)
-                                .foregroundColor(.black)
-                                .background(startButtonColor)
-                                .cornerRadius(25)
-                            }
-                        )
-                        .offset(y: 10)
+                            )
+                            .offset(y: 10)
+                        }
+                        .offset(y: -40)
                     }
-                    .offset(y: -40)
+                    .disabled(disableActions)
+                    .offset(y:10)
                 }
-                .disabled(disableActions)
-                .offset(y:10)
-                
+                .offset(y:50)
                 //swift plot
-                RealTimePlotView()
-                    .offset(y:50)
+                VStack {
+                    RealTimeChartWrapper()
+                }
+                .frame(height: 300)
+                .offset(y:40)
                 
                 //go to settings
                 HStack {
@@ -96,7 +101,7 @@ struct CycleRunView: View {
                         }
                     )
                 }
-                .offset(x: 140, y: 110)
+                .offset(x: 140, y: 50)
             }//end of VStack
             .navigationBarTitle("Free Run", displayMode:.inline)
             .navigationBarHidden(true)

@@ -12,6 +12,8 @@ struct SettingsView: View {
     @EnvironmentObject var bleController: BLEController
     @State private var permissionStatus: String = "Unknown"
     @State private var enableButtonColor: Color!
+    @State private var statusTextColor: Color!
+    @State private var showHints: Bool = false
     
     var body: some View {
         VStack {
@@ -59,11 +61,26 @@ struct SettingsView: View {
                 Text("App Actions")
                     .bold()
                     .font(.title)
+                    .padding(.bottom, 5)
                 
-                Text("Hint: Check to make sure the device is on")
+                Text("Device Status: \(bleController.message)")
+                    .onReceive(bleController.$connectionStatus, perform: { deviceStatus in
+                        self.statusTextColor = (deviceStatus ?? false) ? .green : .red
+                        self.showHints = (deviceStatus ?? false) ? false : true
+                    })
                     .bold()
-                    .italic()
                     .font(.headline)
+                    .foregroundColor(statusTextColor)
+                    .padding(.bottom, 5)
+                
+                if (showHints){
+                    Text("Hint: Check to make sure the device is on")
+                        .bold()
+                        .italic()
+                        .foregroundColor(.gray)
+                        .font(.footnote)
+                }
+                
                 
                 VStack {
                     //connect to device

@@ -39,13 +39,16 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     @Published var currPressureValue: Float!
     @Published var time: Float!
     
+    //delegate property to send data to RealTimeChartViewController
+    weak var delegate: SourceViewControllerDelegate?
+    
     override init(){
         super.init()
         self.centralManager = CBCentralManager(delegate: self, queue: nil)
         self.isBluetoothPermissionGranted = authorizationStatus
         self.connectionStatus = false
         self.message = "Disconnected"
-        self.currPressureValue = 0.0
+        self.currPressureValue = 14.3
         self.time = 0.0
     }
     
@@ -78,6 +81,12 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     func connectSensor(){
         scanSensors()
+        
+//        //for previews only
+//        print("Debugging Only: Connected")
+//        connectionStatus = true
+//        message = "Debugging Only: Connected"
+//        delegate?.dataToPass(currPressureValue)
     }
     
     //disconnect or cancel an active or pending local connection
@@ -193,6 +202,9 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         if let floatValue = characteristic.value?.withUnsafeBytes({ $0.load(as: Float.self) }){
             currPressureValue = floatValue
             time = calculateElapsedTime(time: DispatchTime.now())
+            print("Elapsed time: \(String(time))")
+            //send data
+            delegate?.dataToPass(currPressureValue)
         }
         else {
             print("Data is not suitable for conversion to a float.")

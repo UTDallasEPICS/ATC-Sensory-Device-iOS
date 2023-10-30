@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0430BEA2AE96B3900B4CBDD /* BLEData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0430BE92AE96B3900B4CBDD /* BLEData.swift */; };
 		A05C9B252AE236390044F472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B242AE236390044F472 /* SettingsView.swift */; };
 		A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* AllProfilesView.swift */; };
 		A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */; };
@@ -17,17 +16,20 @@
 		A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */; };
 		A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */; };
 		A05C9B512AE471360044F472 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B502AE471360044F472 /* HeaderView.swift */; };
+		A060E9572AEF6A6C00925669 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = A060E9562AEF6A6C00925669 /* DGCharts */; };
+		A060E9592AEF6A6C00925669 /* DGChartsDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A060E9582AEF6A6C00925669 /* DGChartsDynamic */; };
+		A060E95C2AEF6DD000925669 /* RealTimeChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060E95B2AEF6DD000925669 /* RealTimeChartViewController.swift */; };
+		A060E9612AEF7BE700925669 /* RealTimeChartWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060E9602AEF7BE700925669 /* RealTimeChartWrapper.swift */; };
+		A060E9632AEF8CAF00925669 /* SourceViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060E9622AEF8CAF00925669 /* SourceViewControllerDelegate.swift */; };
 		A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */; };
 		A0754B682AB7BE7F00DEB850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B672AB7BE7F00DEB850 /* Assets.xcassets */; };
 		A0754B6B2AB7BE7F00DEB850 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B6A2AB7BE7F00DEB850 /* Preview Assets.xcassets */; };
 		A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B722AB7DE3D00DEB850 /* BLEController.swift */; };
 		A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */; };
 		A0AC250D2AE8725A00E10098 /* InteractiveSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */; };
-		A0ADEEB22AE8997500441D13 /* RealTimePlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0ADEEB12AE8997500441D13 /* RealTimePlotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A0430BE92AE96B3900B4CBDD /* BLEData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEData.swift; sourceTree = "<group>"; };
 		A05C9B242AE236390044F472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A05C9B282AE2367D0044F472 /* AllProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProfilesView.swift; sourceTree = "<group>"; };
 		A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -37,6 +39,9 @@
 		A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
 		A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActionsView.swift; sourceTree = "<group>"; };
 		A05C9B502AE471360044F472 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A060E95B2AEF6DD000925669 /* RealTimeChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeChartViewController.swift; sourceTree = "<group>"; };
+		A060E9602AEF7BE700925669 /* RealTimeChartWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeChartWrapper.swift; sourceTree = "<group>"; };
+		A060E9622AEF8CAF00925669 /* SourceViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A0754B602AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ATC-Sensory-Device-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ATC-Sensory-Device-iOSApp.swift"; sourceTree = "<group>"; };
 		A0754B672AB7BE7F00DEB850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,7 +50,6 @@
 		A0754B722AB7DE3D00DEB850 /* BLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUUIDs.swift; sourceTree = "<group>"; };
 		A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlider.swift; sourceTree = "<group>"; };
-		A0ADEEB12AE8997500441D13 /* RealTimePlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePlotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,18 +57,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A060E9592AEF6A6C00925669 /* DGChartsDynamic in Frameworks */,
+				A060E9572AEF6A6C00925669 /* DGCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A060E95A2AEF6AF800925669 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A060E95D2AEF796400925669 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
+				A060E95B2AEF6DD000925669 /* RealTimeChartViewController.swift */,
+				A060E9622AEF8CAF00925669 /* SourceViewControllerDelegate.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		A0754B572AB7BE7B00DEB850 = {
 			isa = PBXGroup;
 			children = (
 				A0754B712AB7DDB500DEB850 /* ATC-Sensory-Device-iOS-Info.plist */,
 				A0754B622AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS */,
 				A0754B612AB7BE7C00DEB850 /* Products */,
+				A060E95A2AEF6AF800925669 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +103,7 @@
 		A0754B622AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A060E95D2AEF796400925669 /* Controllers */,
 				A0A9265D2ADF535F003697F6 /* Models */,
 				A0A9265C2ADF5357003697F6 /* ViewModels */,
 				A0A9265B2ADF5353003697F6 /* Views */,
@@ -110,7 +135,6 @@
 				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
 				A05C9B282AE2367D0044F472 /* AllProfilesView.swift */,
 				A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */,
-				A0ADEEB12AE8997500441D13 /* RealTimePlotView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,8 +142,7 @@
 		A0A9265C2ADF5357003697F6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A0430BE92AE96B3900B4CBDD /* BLEData.swift */,
-				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
+				A060E9602AEF7BE700925669 /* RealTimeChartWrapper.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -149,6 +172,10 @@
 			dependencies = (
 			);
 			name = "ATC-Sensory-Device-iOS";
+			packageProductDependencies = (
+				A060E9562AEF6A6C00925669 /* DGCharts */,
+				A060E9582AEF6A6C00925669 /* DGChartsDynamic */,
+			);
 			productName = "ATC Sensory Cuff";
 			productReference = A0754B602AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -177,6 +204,9 @@
 				Base,
 			);
 			mainGroup = A0754B572AB7BE7B00DEB850;
+			packageReferences = (
+				A060E9552AEF6A6C00925669 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = A0754B612AB7BE7C00DEB850 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,17 +235,18 @@
 			files = (
 				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
 				A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */,
-				A0430BEA2AE96B3900B4CBDD /* BLEData.swift in Sources */,
-				A0ADEEB22AE8997500441D13 /* RealTimePlotView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
 				A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */,
 				A05C9B252AE236390044F472 /* SettingsView.swift in Sources */,
 				A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */,
+				A060E9612AEF7BE700925669 /* RealTimeChartWrapper.swift in Sources */,
 				A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */,
+				A060E9632AEF8CAF00925669 /* SourceViewControllerDelegate.swift in Sources */,
 				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
 				A0AC250D2AE8725A00E10098 /* InteractiveSlider.swift in Sources */,
 				A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */,
 				A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */,
+				A060E95C2AEF6DD000925669 /* RealTimeChartViewController.swift in Sources */,
 				A05C9B512AE471360044F472 /* HeaderView.swift in Sources */,
 				A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */,
 			);
@@ -440,6 +471,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A060E9552AEF6A6C00925669 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A060E9562AEF6A6C00925669 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A060E9552AEF6A6C00925669 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		A060E9582AEF6A6C00925669 /* DGChartsDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A060E9552AEF6A6C00925669 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGChartsDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0754B582AB7BE7B00DEB850 /* Project object */;
 }
