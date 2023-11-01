@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum cycleRunConstants {
+    static let inflatePressure = 14.3
+    static let inflateHoldTime = 4.0
+    static let deflatePressure = 0.0
+    static let deflateHoldTime = 8.0
+}
+
 struct CycleRunView: View {
     //access global instance of bleController
     @EnvironmentObject var bleController: BLEController
@@ -39,7 +46,18 @@ struct CycleRunView: View {
                         
                         VStack {
                             Button(
-                                action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
+                                action: {
+                                    bleController.writeOutgoingValue(
+                                        freeRun: false,
+                                        inflate: false,
+                                        deflate: false,
+                                        cycleRun: true,
+                                        start: true,
+                                        stop: false,
+                                        pressureValue: Float(cycleRunConstants.inflatePressure),
+                                        time: Float(cycleRunConstants.inflateHoldTime)
+                                    )
+                                },
                                 label: {
                                     HStack {
                                         Text("Start")
@@ -55,7 +73,16 @@ struct CycleRunView: View {
                             )
                             .offset(y: -10)
                             Button(
-                                action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
+                                action: {bleController.writeOutgoingValue(
+                                    freeRun: false,
+                                    inflate: false,
+                                    deflate: false,
+                                    cycleRun: true,
+                                    start: false,
+                                    stop: true,
+                                    pressureValue: Float(cycleRunConstants.deflatePressure),
+                                    time: Float(cycleRunConstants.deflateHoldTime)
+                                )},
                                 label: {
                                     HStack {
                                         Text("Stop")
@@ -88,7 +115,7 @@ struct CycleRunView: View {
                         }
                     }
                     else {
-                        Text("Connect Device to View Live Pressure Plot")
+                        Text("Connect Device in Settings to View Plot")
                             .bold()
                             .italic()
                             .font(.headline)
@@ -117,7 +144,7 @@ struct CycleRunView: View {
                 }
                 .offset(x: 140, y: 100)
             }//end of VStack
-            .navigationBarTitle("Free Run", displayMode:.inline)
+            .navigationBarTitle("Cycle Run", displayMode:.inline)
             .navigationBarHidden(true)
         }//end of NavigationView
         .accentColor(Color(.label))

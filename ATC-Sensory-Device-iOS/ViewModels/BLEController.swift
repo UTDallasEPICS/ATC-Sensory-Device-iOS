@@ -7,14 +7,11 @@
 
 import Foundation
 import CoreBluetooth
-import Dispatch
 
 /*
  *Class that has methods to connect to a sensor, scan and connect to peripherals,
  *discover services, characteristics, and read value for a characteristic
  */
-
-
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     //required variables
     @Published var centralManager: CBCentralManager!//create instance of central manager
@@ -31,13 +28,11 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         //before iOS 13, bluetooth permissions are not required
         return true
     }
-    private var startTime: DispatchTime?
-    //custom published properties
+    
     @Published var isBluetoothPermissionGranted: Bool!
     @Published var connectionStatus: Bool!
     @Published var message: String!
-    @Published var currPressureValue: Float!
-    @Published var time: Float!
+    @Published var currPressureValue: Float = 14.7
     
     override init(){
         super.init()
@@ -45,8 +40,6 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         self.isBluetoothPermissionGranted = authorizationStatus
         self.connectionStatus = false
         self.message = "Disconnected"
-        self.currPressureValue = 14.3
-        self.time = 0.0
     }
     
     //central is the iOS device
@@ -93,8 +86,6 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         print("Disconnected")
         connectionStatus = false
         message = "Disconnected"
-        //reset startTime so next time device is connected, the new start time is recorded
-        startTime = nil
     }
     
     //scan for peripherals
@@ -192,14 +183,8 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     //read characteristic
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?){
-        if startTime == nil{    //capture start time only if variable is empty
-            startTime = DispatchTime.now()
-        }
         if let floatValue = characteristic.value?.withUnsafeBytes({ $0.load(as: Float.self) }){
             currPressureValue = floatValue
-            time = calculateElapsedTime(time: DispatchTime.now())
-            print("Elapsed time: \(String(time))")
-            //send data
         }
         else {
             print("Data is not suitable for conversion to a float.")
@@ -207,30 +192,26 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     }
     
     //write characteristic
-    func writeOutgoingValue(value: Float) {
-        //create mutable version of value
-        var floatValue = value
+    func writeOutgoingValue(freeRun:Bool, inflate:Bool, deflate:Bool, cycleRun:Bool, start:Bool, stop:Bool, pressureValue:Float, time:Float) {
+        //create mutable versions of parameters
+        //variables to send data over bluetooth
+        var dataToWrite = [freeRun, inflate, deflate, cycleRun, start, stop, pressureValue, time] as [Any]
         
         //a float is 32 bits, so create a pointer to the value byte array with UnsafeBufferPointer and place it in the Data object
         //this line generates a warning about dangling buffer pointers. as long as the pointer is not access elsewhere,
         //safety is maintained
-        let floatBytes = Data(buffer: UnsafeBufferPointer(start: &floatValue, count:1))
+        let dataBytes = Data(buffer: UnsafeBufferPointer(start: &dataToWrite, count:1))
         
-        print(floatBytes as NSData)
+        print(dataBytes as NSData)
         
         if let cuffPeripheral = cuffPeripheral{
             //enter block if cuffPeripheral exists i.e. is not nil
             if let txCharacteristic = txCharacteristic {
                 //enter block if txCharacteristic is not nil
-                cuffPeripheral.writeValue(((floatBytes as NSData) as Data), for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
+                cuffPeripheral.writeValue(((dataBytes as NSData) as Data), for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
                 
             }
         }
-    }
-    
-    private func calculateElapsedTime(time: DispatchTime) -> Float{
-        let elapsedNanoSeconds = time.uptimeNanoseconds - (startTime?.uptimeNanoseconds ?? time.uptimeNanoseconds)
-        return (Float(elapsedNanoSeconds)/1_000_000_000.0)  //convert nanoseconds to seconds
     }
 }
 

@@ -119,9 +119,9 @@
 				A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */,
 				A05C9B2C2AE236960044F472 /* FreeRunView.swift */,
 				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
+				A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */,
 				A05C9B282AE2367D0044F472 /* AllProfilesView.swift */,
 				A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */,
-				A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

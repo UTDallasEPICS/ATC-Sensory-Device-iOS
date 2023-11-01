@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct FreeRunView: View {
-    //access global instance of bleController
+    //access global instances
     @EnvironmentObject var bleController: BLEController
     
-    @State var holdTime: Double = 1.0
-    @State var targetPressure: Double = 14.0
+    @State private var holdTime: Double = 1.0
+    @State private var targetPressure: Double = 14.0
     @State private var inflateButtonColor: Color!
     @State private var deflateButtonColor: Color!
     @State private var statusTextColor: Color!
@@ -57,8 +57,8 @@ struct FreeRunView: View {
                                                   displaySpec: 1,
                                                   stepSize: 0.1,
                                                   colorGradient: [.green, .yellow, .red],
-                                                  minValue: 14.0,
-                                                  maxValue: 15.3,
+                                                  minValue: 14.7,
+                                                  maxValue: 15.7,
                                                   unit: "psi"
                                 )
                                 
@@ -76,11 +76,21 @@ struct FreeRunView: View {
                         }
                         .disabled(disableActions)
                         
-                        //send inflate command
                         HStack {
                             //send deflate command
                             Button(
-                                action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
+                                action: {
+                                    bleController.writeOutgoingValue(
+                                        freeRun: true,
+                                        inflate: false,
+                                        deflate: true,
+                                        cycleRun: false,
+                                        start: false,
+                                        stop: false,
+                                        pressureValue: Float(targetPressure),
+                                        time: Float(holdTime)
+                                    )
+                                },
                                 label: {
                                     HStack {
                                         Text("Deflate")
@@ -95,8 +105,21 @@ struct FreeRunView: View {
                                 }
                             )
                             .offset(x:-50)
+                            
+                            //send inflate command
                             Button(
-                                action: {/*NEEDS TO BE COMPLETED. WRITE TO ESP*/},
+                                action: {
+                                    bleController.writeOutgoingValue(
+                                        freeRun: true,
+                                        inflate: true,
+                                        deflate: false,
+                                        cycleRun: false,
+                                        start: false,
+                                        stop: false,
+                                        pressureValue: Float(targetPressure),
+                                        time: Float(holdTime)
+                                    )
+                                },
                                 label: {
                                     HStack {
                                         Text("Inflate")
@@ -129,7 +152,7 @@ struct FreeRunView: View {
                         }
                     }
                     else {
-                        Text("Connect Device to View Live Pressure Plot")
+                        Text("Connect Device in Settings to View Plot")
                             .bold()
                             .italic()
                             .font(.headline)
@@ -137,7 +160,6 @@ struct FreeRunView: View {
                     }
                 }
                 .frame(width: 350, height: 200)
-                .offset(y:10)
                 
                 //go to settings
                 HStack {
@@ -156,7 +178,7 @@ struct FreeRunView: View {
                         }
                     )
                 }
-                .offset(x: 140, y: 25)
+                .offset(x: 140, y: 10)
             }//end of VStack
             .navigationBarTitle("Free Run", displayMode:.inline)
             .navigationBarHidden(true)

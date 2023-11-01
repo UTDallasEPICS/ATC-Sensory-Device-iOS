@@ -29,7 +29,7 @@ struct WelcomeScreenView: View {
                             .font(Font.system(size: 35))
                             .italic()
                             .bold()
-                        Text(" sensory overtimulation")
+                        Text(" sensory overstimulation")
                             .font(Font.system(size: 35))
                             .italic()
                             .bold()

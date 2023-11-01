@@ -10,12 +10,17 @@ import Charts
 
 enum Constants {
     static let updateInterval = 0.30
-    static let dataArrayLength = 10
-    static let magnitudeLimit: Float = 15.3
+    static let dataArrayLength = 12
+    static let magnitudeMaximum: Float = 16.0
+    static let magnitudeMinimum: Float = 14.0
 }
+
 struct RealTimePlotView: View {
     //access global instance of bleController
     @EnvironmentObject var bleController: BLEController
+    
+    //unwrap published value
+    @State private var unwrappedPressureValue: Float = 0.0
     
     let timer = Timer.publish(
         every: Constants.updateInterval,
@@ -33,8 +38,13 @@ struct RealTimePlotView: View {
                 LineMark(x: .value("Frequency", String(index)), y: .value("Magnitude", magnitude))
                     .foregroundStyle(Color("BlueTheme"))
             }
+            //value updates every time it is recieved from bleController
+            .onReceive(bleController.$currPressureValue,
+                       perform: {value in self.unwrappedPressureValue = value}
+                      )
+            //update function is called only when timer updates. value of unwrappedPressureVal at the time timer updates is counted
             .onReceive(timer, perform: updateData)
-            .chartYScale(domain: 0...Constants.magnitudeLimit)
+            .chartYScale(domain: Constants.magnitudeMinimum...Constants.magnitudeMaximum)
             .chartYAxis{
                 AxisMarks(position: .leading,
                           stroke: StrokeStyle(lineWidth: 0))
@@ -52,8 +62,9 @@ struct RealTimePlotView: View {
         
         //append new entry
         withAnimation(.easeOut(duration: 0.08)){
-            //data.append(bleController.currPressureValue)
-            data.append(Float.random(in: 0...Constants.magnitudeLimit))
+            data.append(unwrappedPressureValue)
+            //FOR DEBUGGING ONLY
+//            data.append(Float.random(in: Constants.magnitudeMinimum...Constants.magnitudeMaximum))
         }
     }
 }
@@ -63,3 +74,12 @@ struct RealTimePlotView: View {
 #Preview {
     RealTimePlotView()
 }
+
+/*
+ Source(s):
+ Vinicius Nakamura
+ https://github.com/vNakamura/SwiftChartsAudioVisualizer.git
+ www.youtube/com/watch?v=8kX1CX-ujlA
+ for logic about queue:
+ https://medium.com/@daniel_liao/the-easiest-way-to-build-real-time-chart-in-ios-fb25bbe35ba1
+ */
