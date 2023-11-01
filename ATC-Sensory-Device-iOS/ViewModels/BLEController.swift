@@ -72,10 +72,10 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     func connectSensor(){
         scanSensors()
         
-        //for previews only
-        print("Debugging Only: Connected")
-        connectionStatus = true
-        message = "Debugging Only: Connected"
+//        //for previews only
+//        print("Debugging Only: Connected")
+//        connectionStatus = true
+//        message = "Debugging Only: Connected"
     }
     
     //disconnect or cancel an active or pending local connection
