@@ -12,6 +12,29 @@ import CoreBluetooth
  *Class that has methods to connect to a sensor, scan and connect to peripherals,
  *discover services, characteristics, and read value for a characteristic
  */
+
+struct dataToSend {
+    let iOSIdentifier: Bool = false     //android device is any value by 0.
+    var freeRun: Bool
+    var inflate: Bool
+    var deflate: Bool
+    var cycleRun: Bool
+    var start: Bool
+    var stop: Bool
+    var pressureValue: Float
+    var time: Float
+    
+    init(freeRun: Bool, inflate: Bool, deflate: Bool, cycleRun: Bool, start: Bool, stop: Bool, pressureValue: Float, time: Float){
+        self.freeRun = freeRun
+        self.inflate = inflate
+        self.deflate = deflate
+        self.cycleRun = cycleRun
+        self.start = start
+        self.stop = stop
+        self.pressureValue = pressureValue
+        self.time = time
+    }
+}
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     //required variables
     @Published var centralManager: CBCentralManager!//create instance of central manager
@@ -71,11 +94,10 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     func connectSensor(){
         scanSensors()
-        
 //        //for previews only
 //        print("Debugging Only: Connected")
 //        connectionStatus = true
-//        message = "Debugging Only: Connected"
+//        message = "Connected"
     }
     
     //disconnect or cancel an active or pending local connection
@@ -193,14 +215,14 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     //write characteristic
     func writeOutgoingValue(freeRun:Bool, inflate:Bool, deflate:Bool, cycleRun:Bool, start:Bool, stop:Bool, pressureValue:Float, time:Float) {
-        //create mutable versions of parameters
-        //variables to send data over bluetooth
-        var dataToWrite = [freeRun, inflate, deflate, cycleRun, start, stop, pressureValue, time] as [Any]
+        //add values into the struct
+        var data = dataToSend(freeRun: freeRun, inflate: inflate, deflate: deflate, cycleRun: cycleRun, start: start, stop: stop, pressureValue: pressureValue, time: time)
+        
         
         //a float is 32 bits, so create a pointer to the value byte array with UnsafeBufferPointer and place it in the Data object
         //this line generates a warning about dangling buffer pointers. as long as the pointer is not access elsewhere,
         //safety is maintained
-        let dataBytes = Data(buffer: UnsafeBufferPointer(start: &dataToWrite, count:1))
+        var dataBytes = Data(buffer: UnsafeBufferPointer(start: &data, count:1))
         
         print(dataBytes as NSData)
         
