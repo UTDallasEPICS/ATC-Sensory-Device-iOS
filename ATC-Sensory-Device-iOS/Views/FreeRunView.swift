@@ -12,7 +12,7 @@ struct FreeRunView: View {
     @EnvironmentObject var bleController: BLEController
     
     @State private var holdTime: Double = 1.0
-    @State private var targetPressure: Double = 14.0
+    @State private var targetPressure: Double = 14.7
     @State private var inflateButtonColor: Color!
     @State private var deflateButtonColor: Color!
     @State private var statusTextColor: Color!
@@ -80,13 +80,15 @@ struct FreeRunView: View {
                             //send deflate command
                             Button(
                                 action: {
+                                    print("Deflate Command, targetPressure %f", targetPressure)
+                                    print("Deflate Command, holdTime %f", holdTime)
                                     bleController.writeOutgoingValue(
-                                        freeRun: 1,
-                                        inflate: 0,
-                                        deflate: 1,
-                                        cycleRun: 0,
-                                        start: 0,
-                                        stop: 0,
+                                        freeRun: true,
+                                        inflate: false,
+                                        deflate: true,
+                                        cycleRun: false,
+                                        start: false,
+                                        stop: false,
                                         pressureValue: Float(targetPressure),
                                         time: Float(holdTime)
                                     )
@@ -109,13 +111,15 @@ struct FreeRunView: View {
                             //send inflate command
                             Button(
                                 action: {
+                                    print("Inflate Command, targetPressure %f", targetPressure)
+                                    print("Inflate Command, holdTime %f", holdTime)
                                     bleController.writeOutgoingValue(
-                                        freeRun: 1,
-                                        inflate: 1,
-                                        deflate: 0,
-                                        cycleRun: 0,
-                                        start: 0,
-                                        stop: 0,
+                                        freeRun: true,
+                                        inflate: true,
+                                        deflate: false,
+                                        cycleRun: false,
+                                        start: false,
+                                        stop: false,
                                         pressureValue: Float(targetPressure),
                                         time: Float(holdTime)
                                     )

@@ -14,17 +14,17 @@ import CoreBluetooth
  */
 
 struct DataToSend {
-    let iOSIdentifier: Int = 1     //android device is any value by 0.
-    var freeRun: UInt8
-    var inflate: UInt8
-    var deflate: UInt8
-    var cycleRun: UInt8
-    var start: UInt8
-    var stop: UInt8
+    let iOSIdentifier: UInt8 = 1     //android device is any value by 0.
+    var freeRun: Bool
+    var inflate: Bool
+    var deflate: Bool
+    var cycleRun: Bool
+    var start: Bool
+    var stop: Bool
     var pressureValue: Float
     var time: Float
     
-    init(freeRun: UInt8, inflate: UInt8, deflate: UInt8, cycleRun: UInt8, start: UInt8, stop: UInt8, pressureValue: Float, time: Float){
+    init(freeRun: Bool, inflate: Bool, deflate: Bool, cycleRun: Bool, start: Bool, stop: Bool, pressureValue: Float, time: Float){
         self.freeRun = freeRun
         self.inflate = inflate
         self.deflate = deflate
@@ -95,9 +95,9 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     func connectSensor(){
         scanSensors()
         //for previews only
-//        print("Debugging Only: Connected")
-//        connectionStatus = true
-//        message = "Connected"
+        print("Debugging Only: Connected")
+        connectionStatus = true
+        message = "Connected"
     }
     
     //disconnect or cancel an active or pending local connection
@@ -214,7 +214,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     }
     
     //write characteristic
-    func writeOutgoingValue(freeRun:UInt8, inflate:UInt8, deflate:UInt8, cycleRun:UInt8, start:UInt8, stop:UInt8, pressureValue:Float, time:Float) {
+    func writeOutgoingValue(freeRun:Bool, inflate:Bool, deflate:Bool, cycleRun:Bool, start:Bool, stop:Bool, pressureValue:Float, time:Float) {
         //add values into the struct
         var dataStructure = DataToSend(freeRun: freeRun, inflate: inflate, deflate: deflate, cycleRun: cycleRun, start: start, stop: stop, pressureValue: pressureValue, time: time)
         

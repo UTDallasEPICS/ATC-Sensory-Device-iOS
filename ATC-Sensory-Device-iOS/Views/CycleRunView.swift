@@ -10,7 +10,9 @@ import SwiftUI
 enum cycleRunConstants {
     static let inflatePressure = 15.3
     static let inflateHoldTime = 4.0
-    static let deflatePressure = 14.5
+    
+    //values are not used by the ESP32
+    static let deflatePressure = 14.7
     static let deflateHoldTime = 8.0
 }
 
@@ -48,12 +50,12 @@ struct CycleRunView: View {
                             Button(
                                 action: {
                                     bleController.writeOutgoingValue(
-                                        freeRun: 0,
-                                        inflate: 0,
-                                        deflate: 0,
-                                        cycleRun: 1,
-                                        start: 1,
-                                        stop: 0,
+                                        freeRun: false,
+                                        inflate: false,
+                                        deflate: false,
+                                        cycleRun: true,
+                                        start: true,
+                                        stop: false,
                                         pressureValue: Float(cycleRunConstants.inflatePressure),
                                         time: Float(cycleRunConstants.inflateHoldTime)
                                     )
@@ -74,12 +76,12 @@ struct CycleRunView: View {
                             .offset(y: -10)
                             Button(
                                 action: {bleController.writeOutgoingValue(
-                                    freeRun: 0,
-                                    inflate: 0,
-                                    deflate: 0,
-                                    cycleRun: 1,
-                                    start: 0,
-                                    stop: 1,
+                                    freeRun: false,
+                                    inflate: false,
+                                    deflate: false,
+                                    cycleRun: true,
+                                    start: false,
+                                    stop: true,
                                     pressureValue: Float(cycleRunConstants.deflatePressure),
                                     time: Float(cycleRunConstants.deflateHoldTime)
                                 )},
