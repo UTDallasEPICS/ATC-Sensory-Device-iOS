@@ -81,12 +81,12 @@ struct FreeRunView: View {
                             Button(
                                 action: {
                                     bleController.writeOutgoingValue(
-                                        freeRun: true,
-                                        inflate: false,
-                                        deflate: true,
-                                        cycleRun: false,
-                                        start: false,
-                                        stop: false,
+                                        freeRun: 1,
+                                        inflate: 0,
+                                        deflate: 1,
+                                        cycleRun: 0,
+                                        start: 0,
+                                        stop: 0,
                                         pressureValue: Float(targetPressure),
                                         time: Float(holdTime)
                                     )
@@ -110,12 +110,12 @@ struct FreeRunView: View {
                             Button(
                                 action: {
                                     bleController.writeOutgoingValue(
-                                        freeRun: true,
-                                        inflate: true,
-                                        deflate: false,
-                                        cycleRun: false,
-                                        start: false,
-                                        stop: false,
+                                        freeRun: 1,
+                                        inflate: 1,
+                                        deflate: 0,
+                                        cycleRun: 0,
+                                        start: 0,
+                                        stop: 0,
                                         pressureValue: Float(targetPressure),
                                         time: Float(holdTime)
                                     )

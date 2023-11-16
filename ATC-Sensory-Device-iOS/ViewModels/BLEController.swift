@@ -13,18 +13,18 @@ import CoreBluetooth
  *discover services, characteristics, and read value for a characteristic
  */
 
-struct dataToSend {
-    let iOSIdentifier: Bool = false     //android device is any value by 0.
-    var freeRun: Bool
-    var inflate: Bool
-    var deflate: Bool
-    var cycleRun: Bool
-    var start: Bool
-    var stop: Bool
+struct DataToSend {
+    let iOSIdentifier: Int = 1     //android device is any value by 0.
+    var freeRun: UInt8
+    var inflate: UInt8
+    var deflate: UInt8
+    var cycleRun: UInt8
+    var start: UInt8
+    var stop: UInt8
     var pressureValue: Float
     var time: Float
     
-    init(freeRun: Bool, inflate: Bool, deflate: Bool, cycleRun: Bool, start: Bool, stop: Bool, pressureValue: Float, time: Float){
+    init(freeRun: UInt8, inflate: UInt8, deflate: UInt8, cycleRun: UInt8, start: UInt8, stop: UInt8, pressureValue: Float, time: Float){
         self.freeRun = freeRun
         self.inflate = inflate
         self.deflate = deflate
@@ -55,7 +55,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     @Published var isBluetoothPermissionGranted: Bool!
     @Published var connectionStatus: Bool!
     @Published var message: String!
-    @Published var currPressureValue: Float = 14.7
+    @Published var currPressureValue: Float = 14.5
     
     override init(){
         super.init()
@@ -94,7 +94,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     func connectSensor(){
         scanSensors()
-//        //for previews only
+        //for previews only
 //        print("Debugging Only: Connected")
 //        connectionStatus = true
 //        message = "Connected"
@@ -214,23 +214,23 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     }
     
     //write characteristic
-    func writeOutgoingValue(freeRun:Bool, inflate:Bool, deflate:Bool, cycleRun:Bool, start:Bool, stop:Bool, pressureValue:Float, time:Float) {
+    func writeOutgoingValue(freeRun:UInt8, inflate:UInt8, deflate:UInt8, cycleRun:UInt8, start:UInt8, stop:UInt8, pressureValue:Float, time:Float) {
         //add values into the struct
-        var data = dataToSend(freeRun: freeRun, inflate: inflate, deflate: deflate, cycleRun: cycleRun, start: start, stop: stop, pressureValue: pressureValue, time: time)
+        var dataStructure = DataToSend(freeRun: freeRun, inflate: inflate, deflate: deflate, cycleRun: cycleRun, start: start, stop: stop, pressureValue: pressureValue, time: time)
         
         
         //a float is 32 bits, so create a pointer to the value byte array with UnsafeBufferPointer and place it in the Data object
         //this line generates a warning about dangling buffer pointers. as long as the pointer is not access elsewhere,
         //safety is maintained
-        var dataBytes = Data(buffer: UnsafeBufferPointer(start: &data, count:1))
+        var dataStructurePointer = Data(buffer: UnsafeBufferPointer(start: &dataStructure, count:1))
         
-        print(dataBytes as NSData)
+        print(dataStructurePointer as NSData)
         
         if let cuffPeripheral = cuffPeripheral{
             //enter block if cuffPeripheral exists i.e. is not nil
             if let txCharacteristic = txCharacteristic {
                 //enter block if txCharacteristic is not nil
-                cuffPeripheral.writeValue(((dataBytes as NSData) as Data), for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
+                cuffPeripheral.writeValue(((dataStructurePointer as NSData) as Data), for: txCharacteristic, type: CBCharacteristicWriteType.withResponse)
                 
             }
         }

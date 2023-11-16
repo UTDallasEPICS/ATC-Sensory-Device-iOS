@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 enum Constants {
-    static let updateInterval = 0.30
+    static let updateInterval = 0.4 //microcontroller send new pressure value every 0.25s
     static let dataArrayLength = 12
     static let magnitudeMaximum: Float = 16.0
     static let magnitudeMinimum: Float = 14.0
