@@ -33,6 +33,15 @@ struct DataToSend {
         self.stop = stop
         self.pressureValue = pressureValue
         self.time = time
+        
+        print("Free Run: \(self.freeRun)")
+        print("Inflate: \(self.inflate)")
+        print("Deflate: \(self.deflate)")
+        print("Cycle Run: \(self.cycleRun)")
+        print("Start: \(self.start)")
+        print("Stop: \(self.stop)")
+        print("PressureValue: \(self.pressureValue)")
+        print("Time: \(self.time)")
     }
 }
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
@@ -94,10 +103,10 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     func connectSensor(){
         scanSensors()
-        //for previews only
-        print("Debugging Only: Connected")
-        connectionStatus = true
-        message = "Connected"
+//        //for previews only
+//        print("Debugging Only: Connected")
+//        connectionStatus = true
+//        message = "Debugging Only: Connected"
     }
     
     //disconnect or cancel an active or pending local connection

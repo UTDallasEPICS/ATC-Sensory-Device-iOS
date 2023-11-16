@@ -80,8 +80,8 @@ struct FreeRunView: View {
                             //send deflate command
                             Button(
                                 action: {
-                                    print("Deflate Command, targetPressure %f", targetPressure)
-                                    print("Deflate Command, holdTime %f", holdTime)
+                                    print("Deflate Command, targetPressure:\(targetPressure)")
+                                    print("Deflate Command, holdTime:\(holdTime)")
                                     bleController.writeOutgoingValue(
                                         freeRun: true,
                                         inflate: false,
@@ -111,8 +111,8 @@ struct FreeRunView: View {
                             //send inflate command
                             Button(
                                 action: {
-                                    print("Inflate Command, targetPressure %f", targetPressure)
-                                    print("Inflate Command, holdTime %f", holdTime)
+                                    print("Inflate Command, targetPressure:\(targetPressure)")
+                                    print("Inflate Command, holdTime:\(holdTime)")
                                     bleController.writeOutgoingValue(
                                         freeRun: true,
                                         inflate: true,
