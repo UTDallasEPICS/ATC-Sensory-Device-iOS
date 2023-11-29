@@ -13,7 +13,7 @@ struct InteractiveSlider: View {
     //variable to pass a value from child to parent
     @Binding var valToSave: Double
     
-    @State private var sliderValue: Double = 0
+    @State var sliderValue: Double = 0
     
     //values must be provided upon instansiation
     var sliderDescription: String!
@@ -71,6 +71,6 @@ struct InteractiveSlider: View {
 }
 
 #Preview {
-    InteractiveSlider(valToSave: .constant(15), sliderDescription: "Default Value", displaySpec: 1, stepSize: 1, colorGradient: [.green, .yellow, .red], minValue: 1, maxValue: 30, unit: "s")
+    InteractiveSlider(valToSave: .constant(15), sliderValue: 0, sliderDescription: "Default Value", displaySpec: 1, stepSize: 1, colorGradient: [.green, .yellow, .red], minValue: 1, maxValue: 30, unit: "s")
         .environmentObject(BLEController())
 }

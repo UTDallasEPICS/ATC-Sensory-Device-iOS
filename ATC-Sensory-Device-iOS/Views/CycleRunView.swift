@@ -8,12 +8,12 @@
 import SwiftUI
 
 enum cycleRunConstants {
-    static let inflatePressure = 15.3
-    static let inflateHoldTime = 4.0
+    static let inflatePressure = 15.0
+    static let inflateHoldTime = 10.0
     
     //values are not used by the ESP32
     static let deflatePressure = 14.7
-    static let deflateHoldTime = 8.0
+    static let deflateHoldTime = 0.0
 }
 
 struct CycleRunView: View {

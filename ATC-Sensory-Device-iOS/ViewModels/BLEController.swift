@@ -64,7 +64,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     @Published var isBluetoothPermissionGranted: Bool!
     @Published var connectionStatus: Bool!
     @Published var message: String!
-    @Published var currPressureValue: Float = 14.5
+    @Published var currPressureValue: Float = 0.0
     
     override init(){
         super.init()
@@ -103,7 +103,6 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     
     func connectSensor(){
         scanSensors()
-//        //for previews only
 //        print("Debugging Only: Connected")
 //        connectionStatus = true
 //        message = "Debugging Only: Connected"
@@ -218,7 +217,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
             currPressureValue = floatValue
         }
         else {
-            print("Data is not suitable for conversion to a float.")
+            currPressureValue = 0.0
         }
     }
     
@@ -231,7 +230,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         //a float is 32 bits, so create a pointer to the value byte array with UnsafeBufferPointer and place it in the Data object
         //this line generates a warning about dangling buffer pointers. as long as the pointer is not access elsewhere,
         //safety is maintained
-        var dataStructurePointer = Data(buffer: UnsafeBufferPointer(start: &dataStructure, count:1))
+        let dataStructurePointer = Data(buffer: UnsafeBufferPointer(start: &dataStructure, count:1))
         
         print(dataStructurePointer as NSData)
         

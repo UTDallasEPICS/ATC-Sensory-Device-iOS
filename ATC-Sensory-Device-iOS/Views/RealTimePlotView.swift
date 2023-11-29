@@ -40,8 +40,11 @@ struct RealTimePlotView: View {
             }
             //value updates every time it is recieved from bleController
             .onReceive(bleController.$currPressureValue,
-                       perform: {value in self.unwrappedPressureValue = value}
-                      )
+                       perform: {value in
+                self.unwrappedPressureValue = value
+                print(value);  
+            }
+            )
             //update function is called only when timer updates. value of unwrappedPressureVal at the time timer updates is counted
             .onReceive(timer, perform: updateData)
             .chartYScale(domain: Constants.magnitudeMinimum...Constants.magnitudeMaximum)
@@ -64,7 +67,7 @@ struct RealTimePlotView: View {
         withAnimation(.easeOut(duration: 0.08)){
             data.append(unwrappedPressureValue)
             //FOR DEBUGGING ONLY
-//            data.append(Float.random(in: Constants.magnitudeMinimum...Constants.magnitudeMaximum))
+            //            data.append(Float.random(in: Constants.magnitudeMinimum...Constants.magnitudeMaximum))
         }
     }
 }

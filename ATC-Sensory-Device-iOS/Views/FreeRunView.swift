@@ -43,6 +43,7 @@ struct FreeRunView: View {
                         
                         VStack {
                             InteractiveSlider(valToSave: $holdTime,
+                                              sliderValue: 1.0,
                                               sliderDescription: "Hold Time",
                                               displaySpec: 0,
                                               stepSize: 1,
@@ -53,6 +54,7 @@ struct FreeRunView: View {
                             )
                             VStack {
                                 InteractiveSlider(valToSave: $targetPressure,
+                                                  sliderValue: 14.7,
                                                   sliderDescription: "Target Pressure",
                                                   displaySpec: 1,
                                                   stepSize: 0.1,
