@@ -14,7 +14,7 @@ struct WelcomeScreenView: View {
     
     var body: some View {
         if isActive {
-            AllActionsView()
+            HomeScreenView()
         }
         else {
             VStack {

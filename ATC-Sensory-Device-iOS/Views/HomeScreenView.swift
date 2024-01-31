@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AllActionsView: View {    
+struct HomeScreenView: View {
     var body: some View {
         NavigationView {
             VStack {
@@ -22,7 +22,7 @@ struct AllActionsView: View {
                 
                 //go to user profiles
                 NavigationLink(
-                    destination: AllProfilesView(),
+                    destination: UserProfilesView(users: User.sampleData),
                     label: {
                         HStack {
                             Image(systemName: "person.2.fill")
@@ -45,6 +45,7 @@ struct AllActionsView: View {
                         .cornerRadius(25)
                         .offset(y: -20)
                         .padding(.bottom, 50)
+                        .accessibilityLabel("User Profiles")
                     }
                 )
                 
@@ -74,6 +75,7 @@ struct AllActionsView: View {
                         .cornerRadius(25)
                         .offset(y: -20)
                         .padding(.bottom, 50)
+                        .accessibilityLabel("Free Run Operation")
                     }
                 )
                 
@@ -101,6 +103,7 @@ struct AllActionsView: View {
                         .background(Color("BlueTheme"))
                         .cornerRadius(25)
                         .offset(y: -20)
+                        .accessibilityLabel("Cycle Run Operation")
                     }
                 )
                 
@@ -131,5 +134,5 @@ struct AllActionsView: View {
 }
 
 #Preview {
-    AllActionsView()
+    HomeScreenView()
 }

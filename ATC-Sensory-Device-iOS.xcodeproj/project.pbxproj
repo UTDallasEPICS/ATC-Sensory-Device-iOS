@@ -8,20 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		A05C9B252AE236390044F472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B242AE236390044F472 /* SettingsView.swift */; };
-		A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* AllProfilesView.swift */; };
-		A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */; };
+		A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* UserProfilesView.swift */; };
 		A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2C2AE236960044F472 /* FreeRunView.swift */; };
 		A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */; };
 		A05C9B332AE435FF0044F472 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B322AE435FF0044F472 /* User.swift */; };
 		A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */; };
-		A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */; };
+		A05C9B4D2AE45FF30044F472 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B4C2AE45FF30044F472 /* HomeScreenView.swift */; };
 		A05C9B512AE471360044F472 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B502AE471360044F472 /* HeaderView.swift */; };
 		A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */; };
 		A0754B682AB7BE7F00DEB850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B672AB7BE7F00DEB850 /* Assets.xcassets */; };
 		A0754B6B2AB7BE7F00DEB850 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0754B6A2AB7BE7F00DEB850 /* Preview Assets.xcassets */; };
 		A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B722AB7DE3D00DEB850 /* BLEController.swift */; };
 		A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */; };
-		A0AC250D2AE8725A00E10098 /* InteractiveSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */; };
+		A0AC250D2AE8725A00E10098 /* InteractiveSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC250C2AE8725A00E10098 /* InteractiveSliderView.swift */; };
+		A0B364A02B6854B000EA2AB2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B3649F2B6854B000EA2AB2 /* CardView.swift */; };
+		A0B364A22B68694B00EA2AB2 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364A12B68694B00EA2AB2 /* EditProfileView.swift */; };
+		A0B364A62B697C9500EA2AB2 /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364A52B697C9500EA2AB2 /* ProfileViewViewModel.swift */; };
+		A0B364A82B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */; };
 		A0FC8A9E2AF0627800F5D51F /* RealTimePlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,13 +43,12 @@
 
 /* Begin PBXFileReference section */
 		A05C9B242AE236390044F472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		A05C9B282AE2367D0044F472 /* AllProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProfilesView.swift; sourceTree = "<group>"; };
-		A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		A05C9B282AE2367D0044F472 /* UserProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilesView.swift; sourceTree = "<group>"; };
 		A05C9B2C2AE236960044F472 /* FreeRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRunView.swift; sourceTree = "<group>"; };
 		A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleRunView.swift; sourceTree = "<group>"; };
 		A05C9B322AE435FF0044F472 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
-		A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllActionsView.swift; sourceTree = "<group>"; };
+		A05C9B4C2AE45FF30044F472 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		A05C9B502AE471360044F472 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A0754B602AB7BE7C00DEB850 /* ATC-Sensory-Device-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ATC-Sensory-Device-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0754B632AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ATC-Sensory-Device-iOSApp.swift"; sourceTree = "<group>"; };
@@ -55,7 +57,11 @@
 		A0754B712AB7DDB500DEB850 /* ATC-Sensory-Device-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ATC-Sensory-Device-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0754B722AB7DE3D00DEB850 /* BLEController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEController.swift; sourceTree = "<group>"; };
 		A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUUIDs.swift; sourceTree = "<group>"; };
-		A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlider.swift; sourceTree = "<group>"; };
+		A0AC250C2AE8725A00E10098 /* InteractiveSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSliderView.swift; sourceTree = "<group>"; };
+		A0B3649F2B6854B000EA2AB2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A0B364A12B68694B00EA2AB2 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		A0B364A52B697C9500EA2AB2 /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
+		A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
 		A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePlotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,14 +120,15 @@
 			children = (
 				A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */,
 				A05C9B502AE471360044F472 /* HeaderView.swift */,
-				A05C9B4C2AE45FF30044F472 /* AllActionsView.swift */,
+				A05C9B4C2AE45FF30044F472 /* HomeScreenView.swift */,
 				A05C9B242AE236390044F472 /* SettingsView.swift */,
-				A0AC250C2AE8725A00E10098 /* InteractiveSlider.swift */,
+				A0AC250C2AE8725A00E10098 /* InteractiveSliderView.swift */,
+				A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */,
 				A05C9B2C2AE236960044F472 /* FreeRunView.swift */,
 				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
-				A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */,
-				A05C9B282AE2367D0044F472 /* AllProfilesView.swift */,
-				A05C9B2A2AE2368B0044F472 /* EditProfileView.swift */,
+				A0B3649F2B6854B000EA2AB2 /* CardView.swift */,
+				A05C9B282AE2367D0044F472 /* UserProfilesView.swift */,
+				A0B364A12B68694B00EA2AB2 /* EditProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
+				A0B364A52B697C9500EA2AB2 /* ProfileViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -139,6 +147,7 @@
 			children = (
 				A05C9B322AE435FF0044F472 /* User.swift */,
 				A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */,
+				A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,19 +227,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B364A22B68694B00EA2AB2 /* EditProfileView.swift in Sources */,
 				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
-				A05C9B2B2AE2368B0044F472 /* EditProfileView.swift in Sources */,
 				A0FC8A9E2AF0627800F5D51F /* RealTimePlotView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
-				A05C9B292AE2367D0044F472 /* AllProfilesView.swift in Sources */,
+				A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */,
 				A05C9B252AE236390044F472 /* SettingsView.swift in Sources */,
 				A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */,
-				A05C9B4D2AE45FF30044F472 /* AllActionsView.swift in Sources */,
+				A05C9B4D2AE45FF30044F472 /* HomeScreenView.swift in Sources */,
+				A0B364A82B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift in Sources */,
 				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
-				A0AC250D2AE8725A00E10098 /* InteractiveSlider.swift in Sources */,
+				A0AC250D2AE8725A00E10098 /* InteractiveSliderView.swift in Sources */,
 				A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */,
 				A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */,
 				A05C9B512AE471360044F472 /* HeaderView.swift in Sources */,
+				A0B364A62B697C9500EA2AB2 /* ProfileViewViewModel.swift in Sources */,
+				A0B364A02B6854B000EA2AB2 /* CardView.swift in Sources */,
 				A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

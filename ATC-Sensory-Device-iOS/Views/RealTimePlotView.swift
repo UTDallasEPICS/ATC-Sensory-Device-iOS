@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 
-enum Constants {
+enum PlotViewConstants {
     static let updateInterval = 0.4 //microcontroller send new pressure value every 0.25s
     static let dataArrayLength = 12
     static let magnitudeMaximum: Float = 16.0
@@ -23,13 +23,13 @@ struct RealTimePlotView: View {
     @State private var unwrappedPressureValue: Float = 0.0
     
     let timer = Timer.publish(
-        every: Constants.updateInterval,
+        every: PlotViewConstants.updateInterval,
         on: .main,
         in: .common
     ).autoconnect()
     
     //assign array with random values to begin with
-    @State var data: [Float] = Array(repeating: 0, count: Constants.dataArrayLength)
+    @State var data: [Float] = Array(repeating: 0, count: PlotViewConstants.dataArrayLength)
     
     var body: some View {
         VStack{
@@ -47,7 +47,7 @@ struct RealTimePlotView: View {
             )
             //update function is called only when timer updates. value of unwrappedPressureVal at the time timer updates is counted
             .onReceive(timer, perform: updateData)
-            .chartYScale(domain: Constants.magnitudeMinimum...Constants.magnitudeMaximum)
+            .chartYScale(domain: PlotViewConstants.magnitudeMinimum...PlotViewConstants.magnitudeMaximum)
             .chartYAxis{
                 AxisMarks(position: .leading,
                           stroke: StrokeStyle(lineWidth: 0))
