@@ -15,7 +15,7 @@ struct UserProfilesView: View {
             HeaderView(title: "User Profiles")
             
             NavigationStack {
-                List($users) { $user in
+                List($users, editActions: .delete) { $user in
                     NavigationLink (destination: DetailView(user: $user)) {
                         CardView(user: user)
                     }
@@ -44,3 +44,8 @@ struct UserProfilesView: View {
 #Preview {
     UserProfilesView(users: .constant(User.sampleData))
 }
+
+/*
+ resource for all user profile views (parent and child):
+ https://developer.apple.com/tutorials/app-dev-training
+ */
