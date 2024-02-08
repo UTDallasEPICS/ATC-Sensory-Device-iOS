@@ -22,9 +22,10 @@
 		A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */; };
 		A0AC250D2AE8725A00E10098 /* InteractiveSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC250C2AE8725A00E10098 /* InteractiveSliderView.swift */; };
 		A0B364A02B6854B000EA2AB2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B3649F2B6854B000EA2AB2 /* CardView.swift */; };
-		A0B364A22B68694B00EA2AB2 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364A12B68694B00EA2AB2 /* EditProfileView.swift */; };
-		A0B364A62B697C9500EA2AB2 /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364A52B697C9500EA2AB2 /* ProfileViewViewModel.swift */; };
 		A0B364A82B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */; };
+		A0B364AC2B6B174200EA2AB2 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364AB2B6B174200EA2AB2 /* DetailView.swift */; };
+		A0B364AE2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364AD2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift */; };
+		A0B364B22B72B0D600EA2AB2 /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B364B12B72B0D600EA2AB2 /* DetailEditView.swift */; };
 		A0FC8A9E2AF0627800F5D51F /* RealTimePlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,9 +60,10 @@
 		A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBUUIDs.swift; sourceTree = "<group>"; };
 		A0AC250C2AE8725A00E10098 /* InteractiveSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSliderView.swift; sourceTree = "<group>"; };
 		A0B3649F2B6854B000EA2AB2 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		A0B364A12B68694B00EA2AB2 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
-		A0B364A52B697C9500EA2AB2 /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
 		A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconLabelStyle.swift; sourceTree = "<group>"; };
+		A0B364AB2B6B174200EA2AB2 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A0B364AD2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingIconLabelStyle.swift; sourceTree = "<group>"; };
+		A0B364B12B72B0D600EA2AB2 /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimePlotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,7 +130,8 @@
 				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
 				A0B3649F2B6854B000EA2AB2 /* CardView.swift */,
 				A05C9B282AE2367D0044F472 /* UserProfilesView.swift */,
-				A0B364A12B68694B00EA2AB2 /* EditProfileView.swift */,
+				A0B364AB2B6B174200EA2AB2 /* DetailView.swift */,
+				A0B364B12B72B0D600EA2AB2 /* DetailEditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
-				A0B364A52B697C9500EA2AB2 /* ProfileViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -148,6 +150,7 @@
 				A05C9B322AE435FF0044F472 /* User.swift */,
 				A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */,
 				A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */,
+				A0B364AD2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,8 +230,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B364A22B68694B00EA2AB2 /* EditProfileView.swift in Sources */,
 				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
+				A0B364AE2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift in Sources */,
 				A0FC8A9E2AF0627800F5D51F /* RealTimePlotView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
 				A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */,
@@ -237,11 +240,12 @@
 				A05C9B4D2AE45FF30044F472 /* HomeScreenView.swift in Sources */,
 				A0B364A82B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift in Sources */,
 				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
+				A0B364AC2B6B174200EA2AB2 /* DetailView.swift in Sources */,
+				A0B364B22B72B0D600EA2AB2 /* DetailEditView.swift in Sources */,
 				A0AC250D2AE8725A00E10098 /* InteractiveSliderView.swift in Sources */,
 				A0754B732AB7DE3D00DEB850 /* BLEController.swift in Sources */,
 				A0754B752AB7E22C00DEB850 /* CBUUIDs.swift in Sources */,
 				A05C9B512AE471360044F472 /* HeaderView.swift in Sources */,
-				A0B364A62B697C9500EA2AB2 /* ProfileViewViewModel.swift in Sources */,
 				A0B364A02B6854B000EA2AB2 /* CardView.swift in Sources */,
 				A05C9B2F2AE2369F0044F472 /* CycleRunView.swift in Sources */,
 			);

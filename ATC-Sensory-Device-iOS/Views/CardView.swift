@@ -26,9 +26,13 @@ struct CardView: View {
                     .padding(.bottom, 10)
                 HStack{
                     Label("\(user.pressure, specifier: "%0.1f") PSI", systemImage: "barometer")
+                        .foregroundColor(.black)
                         .accessibilityLabel("\(user.pressure) PSI")
+                        .labelStyle(.leadingIcon)
+                        .padding(.leading, 10)
                     Spacer()
                     Label("\(user.holdTime, specifier: "%0.0f") s", systemImage: "timer")
+                        .foregroundColor(.black)
                         .accessibilityLabel("\(user.holdTime) seconds")
                         .labelStyle(.trailingIcon)
                         .padding(.trailing, 10)

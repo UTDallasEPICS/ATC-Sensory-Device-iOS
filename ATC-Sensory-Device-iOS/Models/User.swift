@@ -13,6 +13,33 @@ struct User: Identifiable, Codable {
     var pressure: Double
     var holdTime: Double
     
+    //properties to prevent infinite recursion
+    var nameAsString: String {
+        get {
+            String(name)
+        }
+        set {
+            name = String(newValue)
+        }
+    }
+    var pressureAsADouble: Double {
+        get {
+            Double(pressure)
+        }
+        set {
+            pressure = Double(newValue)
+        }
+    }
+    
+    var holdTimeAsDouble: Double {
+        get {
+            Double(holdTime)
+        }
+        set {
+            holdTime = Double(newValue)
+        }
+    }
+    
     init(id: UUID = UUID(), name: String, pressure: Double, holdTime: Double){
         self.id = id
         self.name = name

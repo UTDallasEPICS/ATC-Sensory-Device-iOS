@@ -20,9 +20,10 @@ struct HomeScreenView: View {
                 }
                 .offset(y: -70)
                 
+                //TO DO: CHANGE ARGUMENT FOR DESTINATION
                 //go to user profiles
                 NavigationLink(
-                    destination: UserProfilesView(users: User.sampleData),
+                    destination: UserProfilesView(users: .constant(User.sampleData)),
                     label: {
                         HStack {
                             Image(systemName: "person.2.fill")
