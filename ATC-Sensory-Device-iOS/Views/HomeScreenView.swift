@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeScreenView: View {
+    @State var users: [User] = []
+    
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -20,10 +23,8 @@ struct HomeScreenView: View {
                 }
                 .offset(y: -70)
                 
-                //TO DO: CHANGE ARGUMENT FOR DESTINATION
-                //go to user profiles
                 NavigationLink(
-                    destination: UserProfilesView(users: .constant(User.sampleData)),
+                    destination: UserProfilesView(users: $users),
                     label: {
                         HStack {
                             Image(systemName: "person.2.fill")

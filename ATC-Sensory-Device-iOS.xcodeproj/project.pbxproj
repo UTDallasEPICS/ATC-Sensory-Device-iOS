@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A018BD822B759BBD002B3C66 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD812B759BBD002B3C66 /* TimerView.swift */; };
+		A018BD842B7AD87E002B3C66 /* TimerViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD832B7AD87E002B3C66 /* TimerViewHeader.swift */; };
+		A018BD8B2B7ADEFD002B3C66 /* RunTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD892B7ADEFD002B3C66 /* RunTimer.swift */; };
+		A018BD8C2B7ADEFD002B3C66 /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD8A2B7ADEFD002B3C66 /* AVPlayer+Ding.swift */; };
+		A018BD8E2B7BDECC002B3C66 /* NewUserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD8D2B7BDECC002B3C66 /* NewUserSheet.swift */; };
 		A05C9B252AE236390044F472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B242AE236390044F472 /* SettingsView.swift */; };
 		A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* UserProfilesView.swift */; };
 		A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2C2AE236960044F472 /* FreeRunView.swift */; };
@@ -43,6 +48,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A018BD812B759BBD002B3C66 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		A018BD832B7AD87E002B3C66 /* TimerViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewHeader.swift; sourceTree = "<group>"; };
+		A018BD892B7ADEFD002B3C66 /* RunTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunTimer.swift; path = ../../../../Downloads/ManagingStateAndLifeCycle/Complete/Scrumdinger/Models/RunTimer.swift; sourceTree = "<group>"; };
+		A018BD8A2B7ADEFD002B3C66 /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AVPlayer+Ding.swift"; path = "../../../../Downloads/ManagingStateAndLifeCycle/Complete/Scrumdinger/Models/AVPlayer+Ding.swift"; sourceTree = "<group>"; };
+		A018BD8D2B7BDECC002B3C66 /* NewUserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserSheet.swift; sourceTree = "<group>"; };
 		A05C9B242AE236390044F472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A05C9B282AE2367D0044F472 /* UserProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilesView.swift; sourceTree = "<group>"; };
 		A05C9B2C2AE236960044F472 /* FreeRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRunView.swift; sourceTree = "<group>"; };
@@ -120,18 +130,21 @@
 		A0A9265B2ADF5353003697F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */,
 				A05C9B502AE471360044F472 /* HeaderView.swift */,
-				A05C9B4C2AE45FF30044F472 /* HomeScreenView.swift */,
-				A05C9B242AE236390044F472 /* SettingsView.swift */,
+				A0B3649F2B6854B000EA2AB2 /* CardView.swift */,
 				A0AC250C2AE8725A00E10098 /* InteractiveSliderView.swift */,
 				A0FC8A9D2AF0627800F5D51F /* RealTimePlotView.swift */,
+				A05C9B482AE437ED0044F472 /* WelcomeScreenView.swift */,
+				A05C9B4C2AE45FF30044F472 /* HomeScreenView.swift */,
+				A05C9B242AE236390044F472 /* SettingsView.swift */,
 				A05C9B2C2AE236960044F472 /* FreeRunView.swift */,
 				A05C9B2E2AE2369F0044F472 /* CycleRunView.swift */,
-				A0B3649F2B6854B000EA2AB2 /* CardView.swift */,
 				A05C9B282AE2367D0044F472 /* UserProfilesView.swift */,
+				A018BD8D2B7BDECC002B3C66 /* NewUserSheet.swift */,
 				A0B364AB2B6B174200EA2AB2 /* DetailView.swift */,
 				A0B364B12B72B0D600EA2AB2 /* DetailEditView.swift */,
+				A018BD812B759BBD002B3C66 /* TimerView.swift */,
+				A018BD832B7AD87E002B3C66 /* TimerViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +160,8 @@
 		A0A9265D2ADF535F003697F6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A018BD8A2B7ADEFD002B3C66 /* AVPlayer+Ding.swift */,
+				A018BD892B7ADEFD002B3C66 /* RunTimer.swift */,
 				A05C9B322AE435FF0044F472 /* User.swift */,
 				A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */,
 				A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */,
@@ -230,16 +245,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A018BD8E2B7BDECC002B3C66 /* NewUserSheet.swift in Sources */,
 				A05C9B492AE437ED0044F472 /* WelcomeScreenView.swift in Sources */,
+				A018BD842B7AD87E002B3C66 /* TimerViewHeader.swift in Sources */,
 				A0B364AE2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift in Sources */,
+				A018BD8C2B7ADEFD002B3C66 /* AVPlayer+Ding.swift in Sources */,
 				A0FC8A9E2AF0627800F5D51F /* RealTimePlotView.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
 				A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */,
 				A05C9B252AE236390044F472 /* SettingsView.swift in Sources */,
 				A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */,
 				A05C9B4D2AE45FF30044F472 /* HomeScreenView.swift in Sources */,
+				A018BD8B2B7ADEFD002B3C66 /* RunTimer.swift in Sources */,
 				A0B364A82B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift in Sources */,
 				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
+				A018BD822B759BBD002B3C66 /* TimerView.swift in Sources */,
 				A0B364AC2B6B174200EA2AB2 /* DetailView.swift in Sources */,
 				A0B364B22B72B0D600EA2AB2 /* DetailEditView.swift in Sources */,
 				A0AC250D2AE8725A00E10098 /* InteractiveSliderView.swift in Sources */,
@@ -401,7 +421,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "EPICS.ATC-Sensory-Device-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "EPICS.Portable-Hugs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -439,7 +459,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "EPICS.ATC-Sensory-Device-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "EPICS.Portable-Hugs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -26,11 +26,11 @@ struct InteractiveSliderView: View {
     
     var body: some View {
         VStack {
+            
             Text("Set \(sliderDescription): \(sliderValue,specifier: "%0.\(displaySpec)f") \(unit)")
                 .bold()
                 .font(.headline)
                 .offset(x: 10)
-            
             
             ZStack {
                 //mask for gradient slider
@@ -45,7 +45,10 @@ struct InteractiveSliderView: View {
                            minimumValueLabel: Text("\(minValue, specifier: "%0.\(displaySpec)f")"),
                            maximumValueLabel: Text("\(maxValue, specifier: "%0.\(displaySpec)f")")
                           ){ Text("Title") }
+                    
+                   
                 )
+                
                 
                 //actual movable slider
                 Slider(value: $sliderValue,

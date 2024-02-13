@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserProfilesView: View {
     @Binding var users: [User]
+    @State private var isPresentingAddUserView = false
     
     var body: some View {
         VStack{
@@ -23,20 +24,28 @@ struct UserProfilesView: View {
                 }
                 .padding(.top, -20)
                 .toolbar {
-                    Button(action: {},
-                           label: { Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .padding(.top, 10)
-                            .padding(.trailing, 10)
-                            .foregroundColor(Color("BlueTheme"))
+                    Button(action: {isPresentingAddUserView = true },
+                           label: {
+                        HStack {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width: 18, height: 18)
+                                .foregroundColor(Color.white)
+                        }
+                        .frame(width: 30, height: 30)
+                        .background(Color.black)
+                        .cornerRadius(10)
+                        .padding(.top, 10)
                     }
                     )
+                    .padding(.trailing, 20)
                 }
                 .accessibilityLabel("Create new user")
                 .scrollContentBackground(.hidden)
             }
+            .sheet(isPresented: $isPresentingAddUserView, content: {
+                NewUserSheet(users: $users, isPresentingAddUserView: $isPresentingAddUserView)
+            })
         }
     }
 }
