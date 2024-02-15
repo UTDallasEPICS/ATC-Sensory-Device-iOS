@@ -65,6 +65,6 @@ extension User {
 
 extension User {
     static var emptyUser: User {
-        User(name: "Person", pressure: 14.7, holdTime: 1)
+        User(name: "", pressure: 14.7, holdTime: 1)
     }
 }

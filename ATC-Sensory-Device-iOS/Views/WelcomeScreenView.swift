@@ -12,6 +12,7 @@ struct WelcomeScreenView: View {
     @State private var size = 0.8
     @State private var opacity = 0.4
     
+    
     var body: some View {
         if isActive {
             HomeScreenView()

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserProfilesView: View {
+    @State private var errorWrapper: ErrorWrapper?
+    @EnvironmentObject var store: UserStore
     @Binding var users: [User]
     @State private var isPresentingAddUserView = false
     
@@ -43,12 +45,38 @@ struct UserProfilesView: View {
                 .accessibilityLabel("Create new user")
                 .scrollContentBackground(.hidden)
             }
-            .sheet(isPresented: $isPresentingAddUserView, content: {
+            .sheet(isPresented: $isPresentingAddUserView) {
                 NewUserSheet(users: $users, isPresentingAddUserView: $isPresentingAddUserView)
-            })
+            }
+            //when user navigates away from the page, save the current list.
+            .onDisappear(){
+                Task {
+                    do {
+                        try await store.save(users: store.users)
+                    } catch {
+                        errorWrapper = ErrorWrapper(error: error, guidance: "Try again later.")
+                    }
+                }
+                print("Data Saved!")
+            }
+        }
+        .sheet(item: $errorWrapper){
+            store.users = User.sampleData
+        } content: { wrapper in
+            ErrorView(errorWrapper: wrapper)
+        }
+        .task {
+            //modifier allows asynchornous function calls
+            do {
+                try await store.load()
+            } catch {
+                errorWrapper = ErrorWrapper(error: error,
+                                            guidance: "Portable Hugs will load sample data and continue")
+            }
         }
     }
 }
+
 
 #Preview {
     UserProfilesView(users: .constant(User.sampleData))

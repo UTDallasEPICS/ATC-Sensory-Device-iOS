@@ -12,6 +12,9 @@
 		A018BD8B2B7ADEFD002B3C66 /* RunTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD892B7ADEFD002B3C66 /* RunTimer.swift */; };
 		A018BD8C2B7ADEFD002B3C66 /* AVPlayer+Ding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD8A2B7ADEFD002B3C66 /* AVPlayer+Ding.swift */; };
 		A018BD8E2B7BDECC002B3C66 /* NewUserSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD8D2B7BDECC002B3C66 /* NewUserSheet.swift */; };
+		A018BD902B7D6727002B3C66 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD8F2B7D6727002B3C66 /* UserStore.swift */; };
+		A018BD922B7D740F002B3C66 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD912B7D740F002B3C66 /* ErrorWrapper.swift */; };
+		A018BD942B7D7472002B3C66 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A018BD932B7D7472002B3C66 /* ErrorView.swift */; };
 		A05C9B252AE236390044F472 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B242AE236390044F472 /* SettingsView.swift */; };
 		A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B282AE2367D0044F472 /* UserProfilesView.swift */; };
 		A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05C9B2C2AE236960044F472 /* FreeRunView.swift */; };
@@ -53,6 +56,9 @@
 		A018BD892B7ADEFD002B3C66 /* RunTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunTimer.swift; path = ../../../../Downloads/ManagingStateAndLifeCycle/Complete/Scrumdinger/Models/RunTimer.swift; sourceTree = "<group>"; };
 		A018BD8A2B7ADEFD002B3C66 /* AVPlayer+Ding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AVPlayer+Ding.swift"; path = "../../../../Downloads/ManagingStateAndLifeCycle/Complete/Scrumdinger/Models/AVPlayer+Ding.swift"; sourceTree = "<group>"; };
 		A018BD8D2B7BDECC002B3C66 /* NewUserSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserSheet.swift; sourceTree = "<group>"; };
+		A018BD8F2B7D6727002B3C66 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		A018BD912B7D740F002B3C66 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		A018BD932B7D7472002B3C66 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		A05C9B242AE236390044F472 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A05C9B282AE2367D0044F472 /* UserProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilesView.swift; sourceTree = "<group>"; };
 		A05C9B2C2AE236960044F472 /* FreeRunView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeRunView.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 				A0B364B12B72B0D600EA2AB2 /* DetailEditView.swift */,
 				A018BD812B759BBD002B3C66 /* TimerView.swift */,
 				A018BD832B7AD87E002B3C66 /* TimerViewHeader.swift */,
+				A018BD932B7D7472002B3C66 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -152,7 +159,6 @@
 		A0A9265C2ADF5357003697F6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -166,6 +172,9 @@
 				A0754B742AB7E22C00DEB850 /* CBUUIDs.swift */,
 				A0B364A72B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift */,
 				A0B364AD2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift */,
+				A018BD8F2B7D6727002B3C66 /* UserStore.swift */,
+				A018BD912B7D740F002B3C66 /* ErrorWrapper.swift */,
+				A0754B722AB7DE3D00DEB850 /* BLEController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,12 +260,15 @@
 				A0B364AE2B6B17E900EA2AB2 /* LeadingIconLabelStyle.swift in Sources */,
 				A018BD8C2B7ADEFD002B3C66 /* AVPlayer+Ding.swift in Sources */,
 				A0FC8A9E2AF0627800F5D51F /* RealTimePlotView.swift in Sources */,
+				A018BD902B7D6727002B3C66 /* UserStore.swift in Sources */,
 				A0754B642AB7BE7C00DEB850 /* ATC-Sensory-Device-iOSApp.swift in Sources */,
 				A05C9B292AE2367D0044F472 /* UserProfilesView.swift in Sources */,
 				A05C9B252AE236390044F472 /* SettingsView.swift in Sources */,
 				A05C9B2D2AE236960044F472 /* FreeRunView.swift in Sources */,
+				A018BD942B7D7472002B3C66 /* ErrorView.swift in Sources */,
 				A05C9B4D2AE45FF30044F472 /* HomeScreenView.swift in Sources */,
 				A018BD8B2B7ADEFD002B3C66 /* RunTimer.swift in Sources */,
+				A018BD922B7D740F002B3C66 /* ErrorWrapper.swift in Sources */,
 				A0B364A82B69A24A00EA2AB2 /* TrailingIconLabelStyle.swift in Sources */,
 				A05C9B332AE435FF0044F472 /* User.swift in Sources */,
 				A018BD822B759BBD002B3C66 /* TimerView.swift in Sources */,
@@ -405,7 +417,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ATC-Sensory-Device-iOS-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ATC Sensory Cuff";
+				INFOPLIST_KEY_CFBundleDisplayName = "Portable Hugs";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Can this app always use Bluetooth?";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow app to search for Sensory Cuff";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -443,7 +456,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ATC-Sensory-Device-iOS-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "ATC Sensory Cuff";
+				INFOPLIST_KEY_CFBundleDisplayName = "Portable Hugs";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Can this app always use Bluetooth?";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Allow app to search for Sensory Cuff";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

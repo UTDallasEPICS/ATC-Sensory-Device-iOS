@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    @State var users: [User] = []
-    
-    
+    @EnvironmentObject var store: UserStore
     var body: some View {
         NavigationView {
             VStack {
@@ -24,7 +22,9 @@ struct HomeScreenView: View {
                 .offset(y: -70)
                 
                 NavigationLink(
-                    destination: UserProfilesView(users: $users),
+                    destination: {
+                        UserProfilesView(users: $store.users)
+                    },
                     label: {
                         HStack {
                             Image(systemName: "person.2.fill")

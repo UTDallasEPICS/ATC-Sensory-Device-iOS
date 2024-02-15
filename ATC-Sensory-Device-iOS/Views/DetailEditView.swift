@@ -10,7 +10,6 @@ import SwiftUI
 struct DetailEditView: View {
     @Binding var user: User
     
-    
     var body: some View {
         VStack {
             Form {
