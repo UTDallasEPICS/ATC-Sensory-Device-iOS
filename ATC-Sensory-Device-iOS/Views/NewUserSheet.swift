@@ -43,3 +43,8 @@ struct NewUserSheet: View {
 #Preview {
     NewUserSheet(users: .constant(User.sampleData), isPresentingAddUserView: .constant(true))
 }
+
+/* Sources/References
+   Referenced iOS App Dev Tutorials' Scrumdinger app development
+   https://developer.apple.com/tutorials/app-dev-training
+ */

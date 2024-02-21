@@ -50,3 +50,9 @@ struct CardView: View {
 #Preview {
     CardView(user: User.sampleData[2])
 }
+
+/* Sources/References
+   Referenced iOS App Dev Tutorials' Scrumdinger app development
+   https://developer.apple.com/tutorials/app-dev-training
+ */
+

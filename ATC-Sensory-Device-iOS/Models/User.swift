@@ -67,4 +67,7 @@ extension User {
     static var emptyUser: User {
         User(name: "", pressure: 14.7, holdTime: 1)
     }
+    static var defaultUser: User {
+        User(name:"Default", pressure: 15.0, holdTime: 10.0)
+    }
 }

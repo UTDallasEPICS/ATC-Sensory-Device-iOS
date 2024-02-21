@@ -82,7 +82,7 @@ struct UserProfilesView: View {
     UserProfilesView(users: .constant(User.sampleData))
 }
 
-/*
- resource for all user profile views (parent and child):
- https://developer.apple.com/tutorials/app-dev-training
+/* Sources/References
+   Referenced iOS App Dev Tutorials' Scrumdinger app development
+   https://developer.apple.com/tutorials/app-dev-training
  */

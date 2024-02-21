@@ -9,7 +9,7 @@ import SwiftUI
 
 //ATC-Sensory-Device-iOS will load and save users to a file in the app user's Documents folder
 
-@MainActor
+@MainActor  //mutations of the propertyies will occur on the main actor.
 class UserStore: ObservableObject {
     @Published var users: [User] = []
     
@@ -44,8 +44,6 @@ class UserStore: ObservableObject {
         }
         _ = try await task.value
     }
-    
-    //load data on app launch
 }
 
 /*

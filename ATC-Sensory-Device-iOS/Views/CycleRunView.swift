@@ -8,9 +8,6 @@
 import SwiftUI
 
 enum cycleRunConstants {
-    static let inflatePressure = 15.0
-    static let inflateHoldTime = 10.0
-    
     //values are not used by the ESP32
     static let deflatePressure = 14.7
     static let deflateHoldTime = 0.0
@@ -19,6 +16,10 @@ enum cycleRunConstants {
 struct CycleRunView: View {
     //access global instance of bleController
     @EnvironmentObject var bleController: BLEController
+    @EnvironmentObject var store: UserStore
+    
+    @State private var isPresentingAllUsersView = false
+    @State private var selectedUser = User.defaultUser
     
     @State private var startButtonColor: Color!
     @State private var stopButtonColor: Color!
@@ -55,8 +56,8 @@ struct CycleRunView: View {
                                     cycleRun: true,
                                     start: true,
                                     stop: false,
-                                    pressureValue: Float(cycleRunConstants.inflatePressure),
-                                    time: Float(cycleRunConstants.inflateHoldTime)
+                                    pressureValue: Float(selectedUser.pressure),
+                                    time: Float(selectedUser.holdTime)
                                 )
                             },
                             label: {
@@ -128,10 +129,32 @@ struct CycleRunView: View {
             
             //go to settings
             HStack {
+                Button(action: {isPresentingAllUsersView = true },
+                       label: {
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundColor(Color.white)
+                        Text("\(selectedUser.name)")
+                            .font(.headline)
+                            .foregroundColor(Color.white)
+                    }
+                    .frame(width: 200, height: 58)
+                    .background(Color.black)
+                    .cornerRadius(25)
+                }
+                )
+                .padding(.leading, 25)
+                .sheet(isPresented: $isPresentingAllUsersView, 
+                       content: {
+                    ImportUserProfile(users: $store.users, isPresentingAllUsersView: $isPresentingAllUsersView, selectedUser: $selectedUser)
+                })
+                Spacer()
                 NavigationLink(
                     destination: SettingsView(),
                     label: {
-                        VStack {
+                        ZStack {
                             Image(systemName: "gear")
                                 .resizable()
                                 .frame(width: 40, height: 40)
@@ -142,8 +165,9 @@ struct CycleRunView: View {
                         .cornerRadius(25)
                     }
                 )
+                .padding(.trailing, 25)
             }
-            .offset(x: 140, y: 100)
+            .offset(y: 100)
         }//end of VStack
     }
 }

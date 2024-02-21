@@ -13,7 +13,8 @@ struct DetailEditView: View {
     var body: some View {
         VStack {
             Form {
-                TextField("Name", text: $user.nameAsString, prompt: Text("Name").foregroundColor(Color("GreenTheme")))
+                TextField("Name", text: $user.nameAsString, prompt: Text("Name (10 Char Max)").foregroundColor(Color("GreenTheme")))
+                    .limitInputLength(value: $user.nameAsString, length: 10)
                     .padding(10)
                     .overlay {
                         RoundedRectangle(cornerRadius: 10)
@@ -69,3 +70,8 @@ struct DetailEditView: View {
 #Preview {
     DetailEditView(user: .constant(User.sampleData[0]))
 }
+
+/* Sources/References
+   Referenced iOS App Dev Tutorials' Scrumdinger app development
+   https://developer.apple.com/tutorials/app-dev-training
+ */

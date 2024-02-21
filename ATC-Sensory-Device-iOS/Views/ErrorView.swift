@@ -53,3 +53,17 @@ struct ErrorView_Previews: PreviewProvider{
         ErrorView(errorWrapper: wrapper)
     }
 }
+
+/*
+ * Sources/References
+    Referenced iOS App Dev Tutorials' Scrumdinger app development
+    https://developer.apple.com/tutorials/app-dev-training
+
+ * to get to this app's sandbox container type the following into the terminal
+   (if the bundle identifier changes, change EPICS.Portable-Hugs to the new identififer).
+ * xcrun simctl get_app_container booted EPICS.Portable-Hugs data
+ * open -a Finder [file path from previous command]
+ * navigate to the .data file in the Documents folder
+ */
+
+

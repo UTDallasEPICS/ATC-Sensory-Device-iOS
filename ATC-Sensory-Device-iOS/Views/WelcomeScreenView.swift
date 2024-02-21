@@ -72,3 +72,5 @@ struct WelcomeScreenView: View {
  @State is a property wrapper that allows us to modify values we hold inside a struct. SwiftUI can destroy and recreate the struct whenever needed without losing the state it was strong. A state should be shared with other views and should be marked as private
  @ObservedObject or @EnvironmentObject can be used when sharing a value across views to ensure all views are refreshed with the data changes
  */
+
+

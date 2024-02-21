@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreenView: View {
     @EnvironmentObject var store: UserStore
+    
     var body: some View {
         NavigationView {
             VStack {

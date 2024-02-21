@@ -98,3 +98,8 @@ struct DetailView: View {
         DetailView(user: .constant(User.sampleData[0]))
     }
 }
+
+/* Sources/References
+   Referenced iOS App Dev Tutorials' Scrumdinger app development
+   https://developer.apple.com/tutorials/app-dev-training
+ */
