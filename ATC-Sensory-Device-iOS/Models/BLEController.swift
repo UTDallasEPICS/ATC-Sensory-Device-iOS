@@ -44,6 +44,7 @@ struct DataToSend {
         print("Time: \(self.time)")
     }
 }
+
 class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralDelegate{
     //required variables
     @Published var centralManager: CBCentralManager!//create instance of central manager
@@ -215,6 +216,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?){
         if let floatValue = characteristic.value?.withUnsafeBytes({ $0.load(as: Float.self) }){
             currPressureValue = floatValue
+            //print("Value received: \(currPressureValue)")
         }
         else {
             currPressureValue = 0.0
@@ -232,7 +234,7 @@ class BLEController: NSObject, ObservableObject, CBCentralManagerDelegate, CBPer
         //safety is maintained
         let dataStructurePointer = Data(buffer: UnsafeBufferPointer(start: &dataStructure, count:1))
         
-        print(dataStructurePointer as NSData)
+        print("Data pointer: \(dataStructurePointer as NSData)")
         
         if let cuffPeripheral = cuffPeripheral{
             //enter block if cuffPeripheral exists i.e. is not nil
