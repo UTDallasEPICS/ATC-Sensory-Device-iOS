@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 enum PlotViewConstants {
-    static let dataArrayLength = 12
+    static let dataArrayLength = 20
     static let magnitudeMaximum: Float = 16.0
     static let magnitudeMinimum: Float = 14.0
 }
